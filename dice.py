@@ -10,20 +10,43 @@ def die():
 # Make a function called custom_die that takes a range 
 # and print a random number in that range.
 def custom_die(num1, num2):
-   print(randint(num1, num2))
+	roll = randint(num1, num2)
 
+	#determine if max or min
+	if roll == num1:
+		print(num1, "Critical Fail")
+	elif roll == num2:
+		print(num2, "Critical Hit")
+	else:
+		print(roll)
 
 def main():
-   # Ask the user how many dice to roll
-   total_rolls = input("How many Dice rolls do you want to roll? ")
-   total_rolls = int(total_rolls)
+	print("Welcome to die roller, press q to exit")
 
-   #Find out how big the Dice are
-   max_num = int(input("How many sides on the Dice? "))
+	entree = ""
 
-   # Roll that many dice
-   for something in range(0, total_rolls):
-      custom_die(1, max_num)
+	#wrap the core logic of the function in a while loop
+	#so that it keeps asking to roll until we exit
+	while entree != "q":
+
+
+		# Ask the user how many dice to roll
+		entree = input("How many Dice rolls do you want to roll? ")
+		if entree == "q":
+			# Exit the program
+			exit()
+		total_rolls = int(entree)
+
+		#Find out how big the Dice are
+		entree = input("How many sides on the Dice? ")
+		if entree == "q":
+			# Exit the program
+			exit()
+		total_sides = int(entree)
+
+		# Roll that many dice
+		for something in range(0, total_rolls):
+			custom_die(1, total_sides)
 
 
 main()
