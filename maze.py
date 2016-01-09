@@ -62,7 +62,7 @@ def room4():
 
 def room5():
 	#start room 5 with while loop in case user doesn't type floor or back
-	end = ""
+	continueMaze5 = ""
 	while continueMaze5 != "floor" and continueMaze5 != "back":
 
 		#this is the room5 function
