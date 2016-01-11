@@ -8,9 +8,13 @@ def main():
 
 	#add string for middle index algorithm
 	middle_characters("elephant")
-	
+
 	#accept input from user and pass to sequence
 	stringSequence(userinput)
+
+	#create list and print it
+	my_list = ["building", "car", "screen", "software", "bicycle"]
+	stringSequence(my_list)
 
 #determine middle index of a string
 def middle_characters(the_string):
@@ -23,5 +27,6 @@ def	stringSequence(string):
 	for x in string:
 		print(x)
 	
+
 
 main()
