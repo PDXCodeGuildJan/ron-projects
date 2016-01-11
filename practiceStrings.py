@@ -3,9 +3,12 @@ def main():
 	print(myString[1])
 	print(myString[-3])
 	print(myString[4:7])
+
+	userinput = input("Please type a word. ")
 	#add string for middle index algorithm
 	middle_characters("elephant")
-	stringSequence("oregon")
+
+	stringSequence(userinput)
 
 #determine middle index of a string
 def middle_characters(the_string):
