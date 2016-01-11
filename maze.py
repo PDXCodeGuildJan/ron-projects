@@ -9,7 +9,7 @@ def main():
 def room1():
 	#this is the room1 function
 	print("You are at the beginning. You are in a room with one door.")
-	startMaze = input("Do you choose to go through the door?")
+	startMaze = input("Do you choose to go through the door? Type yes or type any key to exit. ")
 	if startMaze == "yes":
 		room2()
 	else:
@@ -22,13 +22,13 @@ def room2():
 
 		#this is the room2 function
 		print("You are in room 2. There is one door in front of you and one behind you.")
-		continueMaze2 = input("Do you choose to go through the new door? If yes then type forward, or type back to return to room 1.")
+		continueMaze2 = input("Do you choose to go through the door in front of you? If yes then type forward, or type back to return to room 1. ")
 		if continueMaze2 == "forward":
 			room3()
 		elif continueMaze2 == "back":
 			room1()
 		else:
-			print("I'm sorry I don't understand what you typed. Choose either 'forward' or 'back'.")
+			print("I'm sorry I don't understand what you typed. Choose either 'forward' or 'back'. ")
 
 def room3():
 	#start room 3 with while loop in case user doesn't type right or back
@@ -37,13 +37,13 @@ def room3():
 
 		#this is the room3 function
 		print("You are in room 3. There is one door to your right and one behind you.")
-		continueMaze3 = input("Choose right to go to the next room, or choose back to return to room 3.")
+		continueMaze3 = input("Choose right to go to the next room, or choose back to return to room 3. ")
 		if continueMaze3 == "right":
 			room4()
 		elif continueMaze3 == "back":
 			room2()
 		else:
-			print("I'm sorry I don't understand what you typed. Choose either 'right' or 'back'.")
+			print("I'm sorry I don't understand what you typed. Choose either 'right' or 'back'. ")
 
 def room4():
 	#start room 4 with while loop in case user doesn't type forward or back
@@ -52,27 +52,27 @@ def room4():
 
 		#this is the room4 function
 		print("You are in room 4. There is one door in front of you and one behind you.")
-		continueMaze4 = input("Choose right to go to the next room, or choose back to return to room 4.")
+		continueMaze4 = input("Choose right to go to the next room, or choose back to return to room 4. ")
 		if continueMaze4 == "right":
 			room5()
 		elif continueMaze4 == "back":
 			room3()
 		else:
-			print("I'm sorry I don't understand what you typed. Choose either 'right' or 'back'.")
+			print("I'm sorry I don't understand what you typed. Choose either 'right' or 'back'. ")
 
 def room5():
-	#start room 5 with while loop in case user doesn't type floor or back
+	#start room 5 with while loop in case user doesn't type trapdoor or back
 	continueMaze5 = ""
-	while continueMaze5 != "floor" and continueMaze5 != "back":
+	while continueMaze5 != "trapdoor" and continueMaze5 != "back":
 
 		#this is the room5 function
-		print("You are in room 5. There is one door in the floor and one behind you.")
-		continueMaze5 = input("Choose floor to pull up the door in the floor or choose back to return to room 4.")
-		if continueMaze5 == "floor":
+		print("You are in room 5. There is a trapdoor in the floor and the door behind you just came through.")
+		continueMaze5 = input("Choose trapdoor to move forward or choose back to return to room 4. ")
+		if continueMaze5 == "trapdoor":
 			room1()
 		elif continueMaze5 == "back":
 			room4()
 		else:
-			print("I'm sorry I don't understand what you typed. Choose either 'floor' or 'back'.")
+			print("I'm sorry I don't understand what you typed. Choose either 'trapdoor' or 'back'. ")
 
 main()
