@@ -5,9 +5,11 @@ def main():
 	print(myString[4:7])
 
 	userinput = input("Please type a word. ")
+
 	#add string for middle index algorithm
 	middle_characters("elephant")
-
+	
+	#accept input from user and pass to sequence
 	stringSequence(userinput)
 
 #determine middle index of a string
