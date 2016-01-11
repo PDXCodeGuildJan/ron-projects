@@ -10,7 +10,7 @@ def room1():
 	#this is the room1 function
 	print("You are at the beginning. You are in a room with one door.")
 	startMaze = input("Do you choose to go through the door? Type yes or type any key to exit. ")
-	if startMaze == "yes":
+	if startMaze.lower() == "yes":
 		room2()
 	else:
 		exit()
@@ -23,9 +23,9 @@ def room2():
 		#this is the room2 function
 		print("You are in room 2. There is one door in front of you and one behind you.")
 		continueMaze2 = input("Do you choose to go through the door in front of you? If yes then type forward, or type back to return to room 1. ")
-		if continueMaze2 == "forward":
+		if continueMaze2.lower() == "forward":
 			room3()
-		elif continueMaze2 == "back":
+		elif continueMaze2.lower() == "back":
 			room1()
 		else:
 			print("I'm sorry I don't understand what you typed. Choose either 'forward' or 'back'. ")
@@ -38,9 +38,9 @@ def room3():
 		#this is the room3 function
 		print("You are in room 3. There is one door to your right and one behind you.")
 		continueMaze3 = input("Choose right to go to the next room, or choose back to return to room 3. ")
-		if continueMaze3 == "right":
+		if continueMaze3.lower() == "right":
 			room4()
-		elif continueMaze3 == "back":
+		elif continueMaze3.lower() == "back":
 			room2()
 		else:
 			print("I'm sorry I don't understand what you typed. Choose either 'right' or 'back'. ")
@@ -53,9 +53,9 @@ def room4():
 		#this is the room4 function
 		print("You are in room 4. There is one door in front of you and one behind you.")
 		continueMaze4 = input("Choose right to go to the next room, or choose back to return to room 4. ")
-		if continueMaze4 == "right":
+		if continueMaze4.lower() == "right":
 			room5()
-		elif continueMaze4 == "back":
+		elif continueMaze4.lower() == "back":
 			room3()
 		else:
 			print("I'm sorry I don't understand what you typed. Choose either 'right' or 'back'. ")
@@ -68,9 +68,9 @@ def room5():
 		#this is the room5 function
 		print("You are in room 5. There is a trapdoor in the floor and the door behind you just came through.")
 		continueMaze5 = input("Choose trapdoor to move forward or choose back to return to room 4. ")
-		if continueMaze5 == "trapdoor":
+		if continueMaze5.lower() == "trapdoor":
 			room1()
-		elif continueMaze5 == "back":
+		elif continueMaze5.lower() == "back":
 			room4()
 		else:
 			print("I'm sorry I don't understand what you typed. Choose either 'trapdoor' or 'back'. ")
