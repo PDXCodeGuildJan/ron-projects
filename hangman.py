@@ -43,6 +43,8 @@ def hangperson():
       # see if the guess is in the word, update accordingly
       currentState = updateState(guess, currentState)
 
+      printHangperson(currentState)
+
    # Determine if the user won or lost, and then tell them accordingly
 
 
@@ -84,6 +86,8 @@ def updateState(guess, currentState):
             currentState[index] = guess
             #numfound = numFound + 1
             numFound += 1
+         # increment the index
+         index += 1
 
 
    return currentState
