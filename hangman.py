@@ -46,6 +46,10 @@ def hangperson():
       printHangperson(currentState)
 
    # Determine if the user won or lost, and then tell them accordingly
+   if  listedWord == currentState:
+      print("You win! ")
+   else:
+      print("You lose. ")
 
 
 
