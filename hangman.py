@@ -32,8 +32,11 @@ def hangperson():
    currentState = "_" * len(listedWord)
    currentState = list(currentState)
 
+   #initialize wrong guess list
+   incorrect = []
+
    # Print the initial state of the game
-   printHangperson(currentState)
+   printHangperson(currentState, incorrect)
 
    # Start the game! Loop until the user either wins or loses
    while currentState != listedWord and numWrong < 6:
@@ -41,9 +44,14 @@ def hangperson():
       guess = userGuess()
 
       # see if the guess is in the word, update accordingly
-      currentState = updateState(guess, currentState)
+      #currentState = updateState(guess, currentState, incorrect)
+      bundledLists = updateState(guess, currentState, incorrect)
 
-      printHangperson(currentState)
+      currentState = bundledLists[0]
+      incorrect = bundledLists[1]
+
+
+      printHangperson(currentState, incorrect)
 
    # Determine if the user won or lost, and then tell them accordingly
    if  listedWord == currentState:
@@ -60,7 +68,7 @@ def hangperson():
 # currentState: the current state of the word/game
 #
 # return currentState
-def updateState(guess, currentState):
+def updateState(guess, currentState, incorrect):
    global numWrong
 
    # First, determine if the letter guessed is in the word.
@@ -69,8 +77,10 @@ def updateState(guess, currentState):
    # If it isn't, tell the user and update the numWrong var
 
    if numInWord == 0:
+      print("You're wrong. The noose tightens. ")
       #numWrong = numWrong + 1
       numWrong += 1
+      incorrect.append(guess)
 
    # If it is, congratulate them and update the state of the game.
    #    To update the state, make sure to replace ALL the '_' with"
@@ -94,7 +104,7 @@ def updateState(guess, currentState):
          index += 1
 
 
-   return currentState
+   return [currentState, incorrect]
 
 
 # This helpful function prompts the user for a guess,
@@ -122,7 +132,7 @@ def userGuess():
 # DO NOT CHANGE
 #
 # state: current state of the word
-def printHangperson(state):
+def printHangperson(state, incorrect):
    person = [" O "," | \n | ", "\| \n | ", "\|/\n | ", "\|/\n | \n/  ", "\|/\n | \n/ \\"]
    print()
 
@@ -138,6 +148,10 @@ def printHangperson(state):
       print(i, end=" ")
 
    print("\n")
+
+   print(incorrect)
+   #print empty carriage return
+   print("")
 
 # This line runs the program on import of the module
 hangperson()
