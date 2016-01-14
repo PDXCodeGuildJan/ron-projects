@@ -7,7 +7,7 @@ def selection_sort(myList):
 		
 	while startingIndex  < len(myList):
 
-
+		print("Starting big loop with startingIndex:", startingIndex)
 		####################
 		#STEP 2
 		####################
@@ -16,23 +16,20 @@ def selection_sort(myList):
 		# then locate smallest number in unsorted list
 		indexSmallest = startingIndex
 
-		for currentIndex, value in enumerate(myList[startingIndex:]):
-			if myList[indexSmallest] > value:
+		for currentIndex in range(startingIndex, len(myList)):
+			print("Looking at currentIndex:", currentIndex, "with value:", myList[currentIndex])
+			if myList[indexSmallest] > myList[currentIndex]:
 				indexSmallest = currentIndex
+				print("new lowest value:", myList[currentIndex])
 
 
 		####################
 		#STEP 3
 		####################
 		#swap smallest number with first number in unsorted list by creating a temp item
-
-
 		temp_item = myList[startingIndex]
 		myList[startingIndex] = myList[indexSmallest]
 		myList[indexSmallest] = temp_item
-
-
-
 
 
 		####################
@@ -40,7 +37,7 @@ def selection_sort(myList):
 		####################
 		#increase starting index by 1 of unsorted list
 		startingIndex += 1
-		print(myList)
+		print("Current state of the whole list:", myList)
 
 
 
@@ -54,9 +51,9 @@ def selection_sort(myList):
 
 
 def main():
-	myList = [5, 8, 1, 0, 3]
+	myList = [5, 8, 99, 0, 5]
 	print(myList)
 	myList = selection_sort(myList)
-	print(myList)
+
 
 main()
