@@ -90,10 +90,6 @@ def bubble_sort(myList):
 				myList[current_index] = myList[current_index + 1]
 				myList[current_index + 1] = temp_item
 			
-
-
-
-
 			###################
 			#STEP 5
 			###################
