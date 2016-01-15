@@ -68,7 +68,6 @@ def bubble_sort(myList):
 		
 	while sort_length > starting_index:
 
-
 		####################
 		#STEP 2
 		####################
@@ -95,13 +94,14 @@ def bubble_sort(myList):
 
 
 
-	###################
-	#STEP 5
-	###################
-	#repeat until list is sorted, and shift end of list by one
-	sort_length -= 1
+			###################
+			#STEP 5
+			###################
+			#repeat until list is sorted, and shift end of list by one
+			current_index += 1
+			print(current_index, sort_length)
 
-
+		sort_length -= 1
 
 
 
@@ -110,9 +110,10 @@ def bubble_sort(myList):
 
 
 def main():
-	myList = [5, 8, 99, 0, 5]
+	myList = [58, 8, 99, 1, 56]
 	print(myList)
 	myList = bubble_sort(myList)
+	print(myList)
 
 
 main()
