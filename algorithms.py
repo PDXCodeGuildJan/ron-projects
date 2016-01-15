@@ -112,7 +112,7 @@ def bubble_sort(myList):
 def main():
 	myList = [5, 8, 99, 0, 5]
 	print(myList)
-	myList = selection_sort(myList)
+	myList = bubble_sort(myList)
 
 
 main()
