@@ -68,6 +68,7 @@ def bubble_sort(myList):
 		
 	while sort_length > starting_index:
 
+
 		####################
 		#STEP 2
 		####################
@@ -75,12 +76,16 @@ def bubble_sort(myList):
 
 		while current_index < sort_length -1:
 
+
+
 			####################
 			#STEP 3
 			####################
 			# compare current number with next adjacent number
 			# is number in current position greater than adjacent position?
 			if myList[current_index] > myList[current_index + 1]:
+
+
 
 				####################
 				#STEP 4
@@ -90,6 +95,8 @@ def bubble_sort(myList):
 				myList[current_index] = myList[current_index + 1]
 				myList[current_index + 1] = temp_item
 			
+
+
 			###################
 			#STEP 5
 			###################
@@ -98,8 +105,6 @@ def bubble_sort(myList):
 			print(current_index, sort_length)
 
 		sort_length -= 1
-
-
 
 
 	return myList
