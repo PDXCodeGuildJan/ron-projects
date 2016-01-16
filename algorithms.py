@@ -27,9 +27,12 @@ def selection_sort(myList):
 		#STEP 3
 		####################
 		#swap smallest number with first number in unsorted list by creating a temp item
-		temp_item = myList[startingIndex]
-		myList[startingIndex] = myList[indexSmallest]
-		myList[indexSmallest] = temp_item
+		myList = swap(myList, startingIndex, indexSmallest)
+
+
+		#temp_item = myList[startingIndex]
+		#myList[startingIndex] = myList[indexSmallest]
+		#myList[indexSmallest] = temp_item
 
 
 		####################
@@ -91,9 +94,12 @@ def bubble_sort(myList):
 				#STEP 4
 				####################
 				# swap the numbers when current number is greater than adjacent number
-				temp_item = myList[current_index]
-				myList[current_index] = myList[current_index + 1]
-				myList[current_index + 1] = temp_item
+				myList = swap(myList, current_index, current_index + 1)
+
+
+				#temp_item = myList[current_index]
+				#myList[current_index] = myList[current_index + 1]
+				#myList[current_index + 1] = temp_item
 			
 
 
@@ -110,11 +116,80 @@ def bubble_sort(myList):
 	return myList
 
 
+
+#####################################################
+
+
+def insertion_sort(myList):
+
+	####################
+	#STEP 1
+	####################
+	# Begin at the start of the unsorted list
+	# make sorted list begin at the start of the unsorted list
+	# define how sort length changes for each iteration
+	starting_index = 1
+	sort_length = starting_index
+
+		
+	while startingIndex  < len(myList):
+
+
+
+		####################
+		#STEP 2
+		####################
+		while current_index != 0 and myList[current_index] < myList[current_index - 1]:
+
+
+
+			####################
+			#STEP 3
+			####################
+			# compare current number with next adjacent number
+			# is number in current position greater than adjacent position?
+			if myList[current_index] > myList[current_index + 1]:
+			
+
+
+
+				####################
+				#STEP 4
+				####################
+				# swap the numbers 
+				myList = swap(myList, current_index, current_index + 1)
+			
+ 
+
+			###################
+			#STEP 5
+			###################
+			#repeat until list is sorted, and shift end of list by one
+			current_index += 1
+			
+
+		sort_length += 1
+
+
+	return myList
+
+
+
 def main():
 	myList = [58, 8, 99, 1, 56]
 	print(myList)
-	myList = bubble_sort(myList)
+	myList = insertion_sort(myList)
 	print(myList)
+
+
+#swap function
+def swap(myList, index1, index2):
+	temp_item = myList[index1]
+	myList[index1] = myList[index2]
+	myList[index2] = temp_item
+
+	return myList
+
 
 
 main()
