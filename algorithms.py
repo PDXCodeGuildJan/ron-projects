@@ -125,50 +125,38 @@ def insertion_sort(myList):
 	####################
 	#STEP 1
 	####################
+	# Start of outer loop
 	# Begin at the start of the unsorted list
-	# make sorted list begin at the start of the unsorted list
-	# define how sort length changes for each iteration
-	starting_index = 1
-	sort_length = starting_index
+	# make sorted list begin one index value to the right of the start of the unsorted list
+	for index in range(1, len(myList):)
 
 		
-	while startingIndex  < len(myList):
+	#get the current index value. we'll call it current_value
+	current_value = myList[index]
+
+	#get the adjacent value to the left of the current_value
+	adjacent_value = index - 1
 
 
 
 		####################
 		#STEP 2
 		####################
-		while current_index != 0 and myList[current_index] < myList[current_index - 1]:
+		# start of inner loop
+		# compare current_value with adjacent_value
+		# is current_value greater than adjacent_value?
+		while adjacent_value > current_value
+			#swap the values
+			swap(myList, current_value, adjacent_value + 1)
 
-
-
-			####################
-			#STEP 3
-			####################
-			# compare current number with next adjacent number
-			# is number in current position greater than adjacent position?
-			if myList[current_index] > myList[current_index + 1]:
-			
-
-
-
-				####################
-				#STEP 4
-				####################
-				# swap the numbers 
-				myList = swap(myList, current_index, current_index + 1)
 			
  
 
 			###################
-			#STEP 5
+			#STEP 3
 			###################
-			#repeat until list is sorted, and shift end of list by one
+			#repeat until list is sorted
 			current_index += 1
-			
-
-		sort_length += 1
 
 
 	return myList
