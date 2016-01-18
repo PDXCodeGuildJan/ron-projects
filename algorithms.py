@@ -135,7 +135,7 @@ def insertion_sort(myList):
 	current_value = myList[index]
 
 	#get the adjacent value to the left of the current_value
-	adjacent_value = index - 1
+	adjacent_index = index - 1
 
 
 
@@ -145,9 +145,9 @@ def insertion_sort(myList):
 		# start of inner loop
 		# compare current_value with adjacent_value
 		# is current_value greater than adjacent_value?
-		while adjacent_value > current_value
+		while adjacent_index > current_value
 			#swap the values
-			swap(myList, current_value, adjacent_value + 1)
+			swap(myList, current_value, adjacent_index + 1)
 
 			
  
