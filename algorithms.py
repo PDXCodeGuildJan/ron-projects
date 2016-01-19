@@ -128,14 +128,14 @@ def insertion_sort(myList):
 	# Start of outer loop
 	# Begin at the start of the unsorted list
 	# make sorted list begin one index value to the right of the start of the unsorted list
-	for index in range(1, len(myList):)
+	for index in range(1, len(myList)):
 
 		
 	#get the current index value. we'll call it current_value
 	current_value = myList[index]
 
 	#get the adjacent value to the left of the current_value
-	adjacent_index = myList[index] - 1
+	adjacent_value = index - 1
 
 
 
@@ -145,9 +145,9 @@ def insertion_sort(myList):
 		# start of inner loop
 		# compare current_value with adjacent_value
 		# is current_value greater than adjacent_value?
-		while adjacent_index > current_value
+		while adjacent_value > current_value
 			#swap the values
-			swap(myList, current_value, adjacent_index + 1)
+			swap(myList, current_value, adjacent_value + 1)
 
 			
  
