@@ -121,7 +121,7 @@ def bubble_sort(myList):
 
 
 def insertion_sort(myList):
-
+	pass
 	####################
 	#STEP 1
 	####################
@@ -145,7 +145,7 @@ def insertion_sort(myList):
 		# start of inner loop
 		# compare current_value with adjacent_value
 		# is current_value greater than adjacent_value?
-		while (adjacent < (myList[adjacent - 1] and adjacent > 0):
+		while (adjacent < (myList[adjacent - 1] and adjacent > 0)):
 		#while adjacent > 0 and index < myList[adjacent - 1]:
 		#while adjacent >= 0:
 			#if current_value < myList[adjacent]
@@ -184,5 +184,6 @@ def swap(myList, index1, index2):
 	return myList
 
 
-
-main()
+# call the main to sort the values
+if __name__ == "__main__":
+	main()
