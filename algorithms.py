@@ -135,7 +135,7 @@ def insertion_sort(myList):
 	current_value = myList[index]
 
 	#get the adjacent value to the left of the current_value
-	adjacent_index = index - 1
+	adjacent_index = myList[index] - 1
 
 
 
@@ -156,7 +156,7 @@ def insertion_sort(myList):
 			#STEP 3
 			###################
 			#repeat until list is sorted
-			current_index += 1
+			current_value += 1
 
 
 	return myList
