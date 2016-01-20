@@ -205,18 +205,26 @@ def merge_sort(myList):
 
 
 
-				####################
-				#STEP 4
-				####################
-				# merge the two segments back into one sorted list
-				return merge(left_segment, right_segment)
+			####################
+			#STEP 4
+			####################
+			# merge the two segments back into one sorted list
+			return merge(left_segment, right_segment)
 
 
 
 
 	return myList
 
+
+
+##################################################
+
+
 def merge(left_segment, right_segment):
+	"""Implement merge function"""
+
+
 	# we need two dynamic indexes
 	left_index = 0
 	right_index = 0
@@ -261,12 +269,18 @@ def merge(left_segment, right_segment):
 def main():
 	myList = ["e", "z", "l", "o", "f", "b"]
 	print(myList)
-	myList = insertion_sort(myList)
+	myList = merge_sort(myList)
 	print(myList)
 
 
+####################################################
+
 #swap function
 def swap(myList, index1, index2):
+
+	"""Implement swamp function"""
+
+
 	temp_item = myList[index1]
 	myList[index1] = myList[index2]
 	myList[index2] = temp_item
