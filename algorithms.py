@@ -205,16 +205,15 @@ def merge_sort(myList):
 
 
 
-			####################
-			#STEP 4
-			####################
-			# merge the two segments back into one sorted list
-			return merge(left_segment, right_segment)
+		####################
+		#STEP 4
+		####################
+		# merge the two segments back into one sorted list
+		return merge(left_segment, right_segment)
 
 
 
 
-	return myList
 
 
 
@@ -234,22 +233,22 @@ def merge(left_segment, right_segment):
 	while left_index < len(left_segment) and right_index < len(right_segment):
 		#top of left segment is smaller
 		if left_segment[left_index] < right_segment[right_index]:
-			returned_list.append(left_segment[left_index]))
+			returned_list.append(left_segment[left_index])
 			left_index += 1
 
 			#top of right segment is smaller
 		else:
-			returned_list.append(right_segment[right_index]))
+			returned_list.append(right_segment[right_index])
 			right_index += 1
 
 	#copy remaining items from left segment and append
 	while left_index < len(left_segment):
-		returned_list.append(left_segment[left_index]))
+		returned_list.append(left_segment[left_index])
 		left_index += 1
 
 	#copy remaining items from right segment and append
 	while right_index < len(right_segment):
-		returned_list.append(right_segment[right_index]))
+		returned_list.append(right_segment[right_index])
 		right_index += 1
 
 	return returned_list
