@@ -6,4 +6,12 @@ __author__ = "Ron Shafii"
 # The starting tower with all the discs is (tower1), to a desitnation peg where it should move to (tower2), 
 # and the remaining spare peg (tower3) which we can temporarily use to make this happen.
 # Let's start with 3 discs
-def sort_tower(disc_height, tower1, tower2, tower3):
+def move_to_tower(disc_height, tower1, tower2, tower3):
+	if disc_height == 0
+
+	# move disc from tower1 to tower2
+	
+
+
+# create a move_disc function 
+def move_a_disc(tower1, tower2)
