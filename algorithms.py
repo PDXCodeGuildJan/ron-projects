@@ -117,7 +117,9 @@ def bubble_sort(myList):
 
 
 
-#####################################################
+
+
+#########################################################
 
 
 def insertion_sort(myList):
@@ -165,6 +167,67 @@ def insertion_sort(myList):
 
 
 	return myList
+
+
+
+
+
+########################################################
+
+def merge_sort(myList):
+
+	####################
+	#STEP 1
+	####################
+	# Split the unsorted list into two segments
+
+
+
+		####################
+		#STEP 2
+		####################
+		# sort the first segment
+
+
+
+
+
+
+			####################
+			#STEP 3
+			####################
+			# sort the second segment
+
+
+
+
+				####################
+				#STEP 4
+				####################
+				# merge the two segments back into one sorted list
+
+
+
+
+					###################
+					#STEP 5
+					###################
+
+
+
+	return myList
+
+
+
+
+
+####################################################
+
+
+
+
+
+
 
 
 
