@@ -85,7 +85,7 @@ def search_by_number(search_number):
 			break
 
 	if result == "":
-		print("Sorry, no contact has that number.")
+		print("Sorry, there is no contact with that number.")
 
 
 def print_phonebook():
