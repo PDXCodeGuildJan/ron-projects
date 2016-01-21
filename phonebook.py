@@ -36,7 +36,7 @@ def main():
 		elif option.upper() == "P":
 			print_phonebook()
 
-		elif option.upper() == "S"
+		elif option.upper() == "S":
 			number = input("What contact name do you want to locate? ")
 
 		else:
