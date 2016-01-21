@@ -13,5 +13,5 @@ def move_to_tower(disc_height, tower1, tower2, tower3):
 	
 
 
-# create a move_disc function 
+# create a move_disc function to swap discs from tower to tower?
 def move_a_disc(tower1, tower2)
