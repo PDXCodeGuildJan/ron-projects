@@ -2,6 +2,8 @@
 
 __author__ = "Ron Shafii"
 
+import re
+
 
 
 # add global phonebook to prevent having to call functions.
@@ -51,8 +53,15 @@ def main():
 
 def add_contact(name, phonenumber):
 	"""Does an addition to the phonebook with the given contact info."""
-	phonebook[name] = phonenumber # at the key name store a phone number
-	print("New Contact: ", name, " was added with number ", phonenumber, "\n")
+
+	# remove extra white space that can be added in input
+	regex = "\s+\Z"
+	thing_you_replace_with = ""
+	scrubbed_name = re.sub(regex, thing_you_replace_with, name)
+	print(scrubbed_name)
+
+	phonebook[scrubbed_name] = phonenumber # at the key name store a phone number
+	print("New Contact: ", scrubbed_name, " was added with number ", phonenumber, "\n")
 
 
 
