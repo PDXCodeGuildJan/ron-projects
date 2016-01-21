@@ -70,7 +70,8 @@ def add_contact(name, phonenumber):
 		new_num =+ every_num
 
 	# introduce the correct formatting
-	
+	formatted_num = "(" + new_num[0:3] + ") " + new_num[3:6] + "-" + mew_num[6:]
+	print(formatted_num)
 
 
 	phonebook[scrubbed_name] = phonenumber # at the key name store a phone number
