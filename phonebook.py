@@ -18,7 +18,7 @@ def main():
 	while option != "E":
 
 		# Ask the user what they want to do
-		option = input("You can: \n\t(A)dd\n\t(D)elete\n\t(P)rint\n\t(S)earch by name\n\t(E)xit \n\tWhich would you like to choose? ")
+		option = input("You can: \n\t(A)dd\n\t(D)elete\n\t(P)rint\n\t(S)earch by name\n\tsearch by (N)umber\n\t(E)xit \n\tWhich would you like to choose? ")
 
 		if option.upper() == "A":
 			name = input("What is the contact's name? ")
@@ -37,7 +37,12 @@ def main():
 			print_phonebook()
 
 		elif option.upper() == "S":
-			number = input("What contact name do you want to locate? ")
+			name = input("What contact name do you want to locate? ")
+			search(name)
+
+		elif option.upper() == "N":
+			search_number = input("What number did you want to search? ")
+			search_by_number(search_number)
 
 		else:
 			print("I'm sorry I didn't understand. ")
@@ -53,15 +58,34 @@ def add_contact(name, phonenumber):
 
 def deleted_contact(name):
 	"""Removes a contact from the phonebook."""
-	del phonebook[name]
-
+	if name in phonebook:
+		del phonebook[name]
+		print(name, "was removed from the phonebook.\n")
+	else:
+		print("That contact does not exist.\n")
 
 
 def search(name):
 	"""Find who a certian number is associated with."""
-	number = phonebook[name]
-	print(name, "'s number is", number, "\n")
+	if name in phonebook:
+		number = phonebook[name]
+		print(name, "'s number is", number, "\n")
 
+	else:
+		print("Sorry no contact exists with that name.\n")
+
+
+
+def search_by_number(search_number):
+	"""Determine who is associated with a certain number"""
+	for name, number in phonebook.items():
+		if search_number == number:
+			print(number, "is associated with the name ", name, "\n")
+			result = name
+			break
+
+	if result == "":
+		print("Sorry, no contact has that number.")
 
 
 def print_phonebook():
