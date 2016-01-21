@@ -60,6 +60,19 @@ def add_contact(name, phonenumber):
 	scrubbed_name = re.sub(regex, thing_you_replace_with, name)
 	print(scrubbed_name)
 
+
+	# scrub and reformat the phone number to follow (xxx) xxx-xxxx pattern
+	# remove all, but the numbers
+	regex = "[0-9]+"
+	nums = re.findall(regex, phonenumber)
+	new_num = ""
+	for every_num in nums:
+		new_num =+ every_num
+
+	# introduce the correct formatting
+	
+
+
 	phonebook[scrubbed_name] = phonenumber # at the key name store a phone number
 	print("New Contact: ", scrubbed_name, " was added with number ", phonenumber, "\n")
 
