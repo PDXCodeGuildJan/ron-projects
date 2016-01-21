@@ -67,15 +67,15 @@ def add_contact(name, phonenumber):
 	nums = re.findall(regex, phonenumber)
 	new_num = ""
 	for every_num in nums:
-		new_num =+ every_num
+		new_num += every_num
 
 	# introduce the correct formatting
-	formatted_num = "(" + new_num[0:3] + ") " + new_num[3:6] + "-" + mew_num[6:]
-	print(formatted_num)
+	formatted_num = "(" + new_num[0:3] + ") " + new_num[3:6] + "-" + new_num[6:]
+	#print(formatted_num)
 
 
-	phonebook[scrubbed_name] = phonenumber # at the key name store a phone number
-	print("New Contact: ", scrubbed_name, " was added with number ", phonenumber, "\n")
+	phonebook[scrubbed_name] = formatted_num # at the key name store a phone number
+	print("New Contact: ", scrubbed_name, " was added with number ", formatted_num, "\n")
 
 
 
