@@ -13,7 +13,11 @@ phonebook = {}
 def main():
 	"""The main driver function of our phonebook."""
 
-	print("Welcome to the phonebook. ")
+	#load any existing data into phonebook
+	load_phonebook()
+	#print("Phonebook after load:", phonebook)
+
+	print("Welcome to the phonebook.")
 
 	option = ""
 
@@ -121,8 +125,33 @@ def search_by_number(search_number):
 def save_phonebook():
 	"""Save contents of the phonebook to a file"""
 	open_file = open("PDXphonebook.txt", "w")
-	open_file.write(str(phonebook))
+	open_file.write(str(phonebook)) #cast dictionary into a string
 	open_file.close()
+
+
+
+def load_phonebook():
+	"""load phonebook data from the saved file"""
+	global phonebook #allows load to update global phonebook
+
+	#if the file doesn't exist then create it with write mode and close it
+	load_file = open("PDXphonebook.txt", "w")
+	load_file.close()
+
+
+	#if the file exists then open it in read mode
+	load_file = open("PDXphonebook.txt", "r")
+	phonebook_data = load_file.read() #variable to catch data into
+	load_file.close()
+
+
+	if phonebook_data:
+		# if phonebook has data, load it into the dictionary
+		# convert from string back to dictionary
+		# can't  cast a string dicrectly to a dictionary using dict().  use eval() instead.
+		# phonebook = dict(phonebook_data)
+		phonebook = eval(phonebook_data)
+		# print(phonebook)
 
 
 
