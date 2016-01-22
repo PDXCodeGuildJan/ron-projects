@@ -134,8 +134,8 @@ def load_phonebook():
 	"""load phonebook data from the saved file"""
 	global phonebook #allows load to update global phonebook
 
-	#if the file doesn't exist then create it with write mode and close it
-	load_file = open("PDXphonebook.txt", "w")
+	#if the file doesn't exist then create it in append mode and close it
+	load_file = open("PDXphonebook.txt", "a")
 	load_file.close()
 
 
