@@ -77,15 +77,21 @@ def add_contact(name, phonenumber):
 	phonebook[scrubbed_name] = formatted_num # at the key name store a phone number
 	print("New Contact: ", scrubbed_name, " was added with number ", formatted_num, "\n")
 
+	#save updated phonebook
+	save_phonebook()
 
 
-def deleted_contact(name):
+
+def delete_contact(name):
 	"""Removes a contact from the phonebook."""
 	if name in phonebook:
 		del phonebook[name]
 		print(name, "was removed from the phonebook.\n")
 	else:
 		print("That contact does not exist.\n")
+
+		#save updated phonebook
+		save_phonebook()
 
 
 def search(name):
@@ -109,6 +115,15 @@ def search_by_number(search_number):
 
 	if result == "":
 		print("Sorry, there is no contact with that number.")
+
+
+
+def save_phonebook():
+	"""Save contents of the phonebook to a file"""
+	open_file = open("PDXphonebook.txt", "w")
+	open_file.write(str(phonebook))
+	open_file.close()
+
 
 
 def print_phonebook():
