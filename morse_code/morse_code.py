@@ -69,17 +69,25 @@ def read_code():
 
 
 
+# write code takes two arg the first is an english string and the other is a string that's a filename
+def write_code(english_string, filename):
 
-def write_code():
 	"""Accepts an English message and filename, and writes the message in morse code to a file of the given name."""
+	temp_list = encode(english_string)
+	#locate list funciton that passes a list as a string
+	# add breaks to create spaces between letters and words
 
 
 
-	pass
+	#if the file doesn't exist then create it in append mode and close it
+	load_file = open(filename, "a")
+	load_file.close()
 
+	#need to
 
-
-
+	open_file = open(filename, "w")
+	open_file.write(astring)
+	open_file.close()
 
 
 
