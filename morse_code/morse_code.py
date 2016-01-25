@@ -4,30 +4,71 @@
 __author__ = "Ron Shafii and Shawn Waldow"
 
 import re
+#from morse import morse
 import morse
 
 
 
 
+
+
 def main():
-	print(encode("This, is a test string!"))
+	filename = "morse_to_file.txt"
+	write_code(encode("This, is a test string!"), filename)
+	decode(encode("This, is a test string!"))
 	
 
 
 
 
 
-def decode():
+def decode(morse_string):
 	"""decodes morse into english"""
+	#split dict into a list of tuples
+	#inverse_temp_list = morse.morse.items()
+	#initialize dictionary
+	inverted_dictionary = {}
+	decoded_string = []
 
-	pass
+	#build an inverted dict line by line
+	for (k,v) in morse.morse.items():
+		# turn key into value and value into the key
+		# change list of tuples back into a dictionary
+		inverted_dictionary[v] = k
+	print(inverted_dictionary)
+
+	# process a string of morse. Turn into a list of characters and word delimitors
+	# use .split to to split message into words. separate words with 7 spaces
+	words_to_decode = morse_string.split('       ')
+	print(words_to_decode)
+
+
+	# split the word into a list of characters (list of lists)
+	# loop through the list of words and split into a list of characters
+	for i in words_to_decode:
+		list_of_chars = i.split('   ')
+		#another_list_of_chars = re.split('   ', i)
+
+
+		# loop through the listed of chars to decode with the inverted dict
+		for x in list_of_chars:
+			print("this is ", x)
+
+			try:
+				decoded_string += inverted_dictionary[x]
+			except KeyError:
+				pass
+
+	print(decoded_string)
+
 
 
 
 
 def encode(words_to_encode):
+
 	"""encodes english into morse"""
-	#there are 3 breaks between letters, and 7 breaks between words
+	#there are 3 spaces between letters, and 7 spaces between words
 	#split a string into a list of words
 	list1 = words_to_encode.split()
 	list2 = []
@@ -44,16 +85,25 @@ def encode(words_to_encode):
 		while index < length:
 			letter = word[index]
 			#lookup each letter in morse.py
+			#NEED TO CHANGE ALIAS morse.morse for legibility
 			letter = morse.morse[letter.upper()]
 
 			temp_word += letter
+			# add 3 spaces to the end of each character
+			temp_word += "   "
+
+			# are we at the end of the word
+			if index == length - 1:
+				temp_word += "    "
+
 
 			index += 1
-
+		# appending results of each character into a list
 		list2.append(temp_word)
+		# converting the appended words in the list into a string
+		list2_string = ''.join(map(str, list2))
 
-
-	return(list2)
+	return(list2_string)
 
 
 
@@ -73,20 +123,10 @@ def read_code():
 def write_code(english_string, filename):
 
 	"""Accepts an English message and filename, and writes the message in morse code to a file of the given name."""
-	temp_list = encode(english_string)
-	#locate list funciton that passes a list as a string
-	# add breaks to create spaces between letters and words
 
-
-
-	#if the file doesn't exist then create it in append mode and close it
-	load_file = open(filename, "a")
-	load_file.close()
-
-	#need to
-
+	# if the file doesn't exist then create it in append mode and close it
 	open_file = open(filename, "w")
-	open_file.write(astring)
+	open_file.write(english_string)
 	open_file.close()
 
 
