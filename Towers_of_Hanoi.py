@@ -12,19 +12,18 @@ def move_to_tower(disc_height, start, temp, end):
 	if disc_height >= 1:
 
 	    else:
-	    	#move all discs except the very last one from start to the temp using the end 
-	        move_to_tower(disc_height-1, start, temp, end)
+			# move all discs except the very last one from start to the temp using the end
+		move_to_tower(disc_height-1, start, temp, end)
 
 
-	        # move last disc to the end
-	        move_to_tower(start, end)
+		# move last disc to the end
+		mmove_a_disc(start, end)
 
-	        # nive all discs from temp to end using the start as needed
-	        move_to_tower(disc_height-1, temp, end, start)
-
-
-	
+		# move all discs from temp to end using the start as needed
+		move_to_tower(disc_height-1, temp, end, start)
 
 
-# create a move_disc function to swap discs from tower to tower?
-def move_a_disc(start, end)
+
+
+# create a move disc function to swap discs from tower to tower?
+def move_a_disc(start, end):
