@@ -13,10 +13,11 @@ import morse
 
 
 def main():
-	filename = "morse_to_file.txt"
-	write_code(encode("This, is a test string!"), filename)
-	decode(encode("This, is a test string!"))
-	
+	filename = "test_code.txt"
+	#write_code(encode("This, is a test string!"), filename)
+	#decode(encode("This, is a test string!"))
+	print(read_code(filename))
+
 
 
 
@@ -35,12 +36,12 @@ def decode(morse_string):
 		# turn key into value and value into the key
 		# change list of tuples back into a dictionary
 		inverted_dictionary[v] = k
-	print(inverted_dictionary)
+
 
 	# process a string of morse. Turn into a list of characters and word delimitors
 	# use .split to to split message into words. separate words with 7 spaces
-	words_to_decode = morse_string.split('       ')
-	print(words_to_decode)
+	words_to_decode = morse_string.split('          ')
+
 
 
 	# split the word into a list of characters (list of lists)
@@ -48,18 +49,39 @@ def decode(morse_string):
 	for i in words_to_decode:
 		list_of_chars = i.split('   ')
 		#another_list_of_chars = re.split('   ', i)
-
+		# setup tracking variables
+		length = len(list_of_chars)
+		counter = 0
 
 		# loop through the listed of chars to decode with the inverted dict
 		for x in list_of_chars:
-			print("this is ", x)
 
+
+			# ignore invalid morse strings
 			try:
 				decoded_string += inverted_dictionary[x]
+
+
+				# check to see if we've reached the end. if so then insert a space
+				# maintain the counter to make sure it keeps up with the FOR loop
+				counter += 1
+
+				# if counter reaches end of list_of_chars insert a space
+				if counter == length:
+					decoded_string += ' '
+
+
 			except KeyError:
 				pass
 
-	print(decoded_string)
+
+	# turn list of translated characters back into a list of strings
+	# decoded_string_to_pass is a list not a string
+	decoded_string_to_pass = ''.join(decoded_string)
+
+	return decoded_string_to_pass
+
+
 
 
 
@@ -110,12 +132,15 @@ def encode(words_to_encode):
 
 
 
-def read_code():
+def read_code(filename):
 	"""Accepts a filename and returns the English translation of the contents of the file."""
+	open_file = open(filename, "r")
+	# name the contents of the file morse_string
+	morse_string = open_file.read()
+	open_file.close()
+	# call the function decode to translate the morse string into an english string
+	return decode(morse_string)
 
-
-
-	pass
 
 
 
