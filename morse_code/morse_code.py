@@ -13,10 +13,23 @@ import morse
 
 
 def main():
-	filename = "test_code.txt"
-	#write_code(encode("This, is a test string!"), filename)
-	#decode(encode("This, is a test string!"))
-	print(read_code(filename))
+
+	#Prompt user with menu asking to read or write
+
+	#Prompt user for input to use our write_code function.
+	some_sentences = input("Enter an English sentence or two to translate to morse code:")
+	filename = input("What do you want to call your file? Don't forget to use a .txt filetype.")
+	write_code(some_sentences, filename)
+
+	# Prompt the user for inputs to run read_code function
+	# Improve by prompting with filepath of origin.
+	read_morse_file = input("\n\nEnter a full filename to translate from morse to English:")
+	# Display the translation to the user
+	print(read_morse_file, " translated into english:\n", read_code(read_morse_file))
+
+	
+
+
 
 
 
@@ -135,9 +148,12 @@ def write_code(english_string, filename):
 
 	"""Accepts an English message and filename, and writes the message in morse code to a file of the given name."""
 
+	#call encode and write the result to file.
+	morse_string = encode(english_string)
+
 	# if the file doesn't exist then create it in append mode and close it
 	open_file = open(filename, "w")
-	open_file.write(english_string)
+	open_file.write(morse_string)
 	open_file.close()
 
 
