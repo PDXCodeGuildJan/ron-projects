@@ -22,7 +22,7 @@ def main():
 	while option != "E":
 
 		
-		option = input("You can: Type (W) to translate an English sentence/s to morse.\n\t(Type (R) to translate Morse to English\n\t)Type (E) to Exit.\n\t")
+		option = input("You can:\n\tType (W) to translate an English sentence/s to morse.\n\tType (R) to translate Morse to English.\n\tType (E) to Exit.\n")
 		if option.upper() == "W":
 			#Prompt user for input to use our write_code function.
 			some_sentences = input("Enter an English sentence or two to translate to morse code: ")
@@ -34,7 +34,8 @@ def main():
 			# Improve by prompting with filepath of origin.
 			read_morse_file = input("\n\nEnter a full filename to translate from morse to English: ")
 			# Display the translation to the user
-			print(read_morse_file, " translated into english:\n", read_code(read_morse_file))
+			print(read_morse_file, " translated into english:")
+			print(read_code(read_morse_file))
 
 		elif option.upper() == "E":
 			print("Goodbye")
@@ -54,7 +55,7 @@ def decode(morse_string):
 	#inverse_temp_list = morse.morse.items()
 	#initialize dictionary
 	inverted_dictionary = {}
-	decoded_string = []
+	decoded_list = []
 
 	#build an inverted dict line by line
 	for (k,v) in morse.morse.items():
@@ -72,23 +73,22 @@ def decode(morse_string):
 	# loop through the list of words and split into a list of characters
 	for i in words_to_decode:
 		list_of_chars = i.split('   ')
-		#another_list_of_chars = re.split('   ', i)
 
 		# loop through the listed of chars to decode with the inverted dict
 		for x in list_of_chars:
 			# ignore invalid morse strings
 			try:
-				decoded_string += inverted_dictionary[x]
+				decoded_list += inverted_dictionary[x]
 
 			except KeyError:
 				pass
 
-		decoded_string += ' '
+		decoded_list += ' '
 
 
 	# turn list of translated characters back into a list of strings
 	# decoded_string_to_pass is a list not a string
-	decoded_string_to_pass = ''.join(decoded_string)
+	decoded_string_to_pass = ''.join(decoded_list)
 
 	return decoded_string_to_pass
 
