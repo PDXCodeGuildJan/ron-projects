@@ -15,21 +15,33 @@ import morse
 def main():
 
 	#Prompt user with menu asking to read or write
+	print("Welcome to the Morse Translator.")
 
-	#Prompt user for input to use our write_code function.
-	some_sentences = input("Enter an English sentence or two to translate to morse code:")
-	filename = input("What do you want to call your file? Don't forget to use a .txt filetype.")
-	write_code(some_sentences, filename)
+	option = ""
 
-	# Prompt the user for inputs to run read_code function
-	# Improve by prompting with filepath of origin.
-	read_morse_file = input("\n\nEnter a full filename to translate from morse to English:")
-	# Display the translation to the user
-	print(read_morse_file, " translated into english:\n", read_code(read_morse_file))
+	while option != "E":
 
-	
+		
+		option = input("You can: Type (W) to translate an English sentence/s to morse.\n\t(Type (R) to translate Morse to English\n\t)Type (E) to Exit.\n\t")
+		if option.upper() == "W":
+			#Prompt user for input to use our write_code function.
+			some_sentences = input("Enter an English sentence or two to translate to morse code: ")
+			filename = input("What do you want to call your file? Don't forget to use a .txt filetype. ")
+			write_code(some_sentences, filename)
 
+		elif option.upper() == "R":
+			# Prompt the user for inputs to run read_code function
+			# Improve by prompting with filepath of origin.
+			read_morse_file = input("\n\nEnter a full filename to translate from morse to English: ")
+			# Display the translation to the user
+			print(read_morse_file, " translated into english:\n", read_code(read_morse_file))
 
+		elif option.upper() == "E":
+			print("Goodbye")
+			exit()
+
+		else:
+			print("I'm sorry I didn't understand your entry. ")
 
 
 
