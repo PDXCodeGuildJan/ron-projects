@@ -51,9 +51,19 @@ class Address:
 
 	def __str__(self):
 		"""Print out the formatted address"""
+		formatted_str = sel.street
 
-		pass
+		if self.unit != "":
+			formatted_str = "\n" + self.unit
 		
+		formatted_str = "\n" + self.city + " " + self.state
+		formatted_str = "\n" + self.zip_code
+		formatted_str = "\n" + self.country
+
+		return formatted_str
+
+
+
 
 
 
