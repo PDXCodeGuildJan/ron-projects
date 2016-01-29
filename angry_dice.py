@@ -18,7 +18,7 @@ def main():
 	stage_goals = {1:[1,2], 2:[3,4], 3:[5,6]}
 
 
-
+	display_welcome()
 	#if eval_angry_die = True
 		#if true then return to stage 1
 
@@ -29,21 +29,21 @@ def display_welcome():
 
 
 	print("Welcome to Angry Dice")
-
+	print("Here are the rules of the game:\n")
 	print("Roll two dice that require 2 consecutive integers to be returned in order to advance to the next stage.")
-	print("Each die has 6 sides. The number 3 has been replaced with an Angry Face.")
+	print("Each die has 6 sides. The number 3 has been replaced with an Angry Face.\n")
 
 	print("At stage 1 you must roll a one and a two to move to stage 2")
 	print("At stage 2 you must roll an Angry Face (3) and a four to move to stage 3")
-	print("At stage 3 you must roll a five and a six to win the game.")
+	print("At stage 3 you must roll a five and a six to win the game.\n")
 
 	print("After the computer rolls the dice you will be prompted if you want to hold a die.")
-	print("The computer will not automatically hold the die for you, so pay attention.")
+	print("The computer will not automatically hold the die for you, so pay attention.\n")
 
 	print("If you roll two Angry Faces you will be forced to restart the entire game.")
-	print("You can't lock a six.")
+	print("You can't lock a six.\n")
 
-	print("Press ENTER to start the game!")
+	print("Press ENTER to start the game!\n")
 
 
 
@@ -128,7 +128,6 @@ def lock_die():
 
 	if "Y":
 		die_2.lock = True
-
 
 
 
