@@ -3,7 +3,7 @@
 __author__ = "Ron Shafii"
 
 
-
+from random import randint
 
 
 
@@ -18,7 +18,19 @@ def main():
 	stage_goals = {1:[1,2], 2:[3,4], 3:[5,6]}
 
 
-	display_welcome()
+	#display_welcome()
+
+	#print(die_1, die_2)
+
+
+	#die_1.roll_die()
+	#die_2.roll_die()
+	roll(die_1, die_2)
+
+
+
+
+
 	#if eval_angry_die = True
 		#if true then return to stage 1
 
@@ -43,7 +55,7 @@ def display_welcome():
 	print("If you roll two Angry Faces you will be forced to restart the entire game.")
 	print("You can't lock a six.\n")
 
-	print("Press ENTER to start the game!\n")
+	input("Press ENTER to start the game!\n")
 
 
 
@@ -53,17 +65,17 @@ def roll(die_1, die_2):
 	"""rolls the unlocked die"""
 
 	#if die_1 isn't locked roll the die
-	if die_1.locked != True:
-		die_1.roll_die()
-	# if doe_2 isn't locked roll the doe
-	if die_2.locked != True:
-		die_2.roll_die()
+	die_1.roll_die()
+
+	# if doe_2 isn't locked roll the die
+	die_2.roll_die()
+
 
 	display_die(die_1, die_2)
 
 
 
-def dislay_die(die_1, die_2):
+def display_die(die_1, die_2):
 	""" displays the value of each die"""
 	
 	print("You rolled a {} and {}".format(die_1, die_2))
@@ -123,7 +135,6 @@ def lock_die():
 		die_1.lock = True
 
 
-
 	die_2_status = input("Would you like to lock die_2? Press (Y)es or (N)o. ").upper()
 
 	if "Y":
@@ -165,13 +176,14 @@ class Die:
 		if self.value == 3:
 			return "Angry Face"
 		else:
-			return self.value
-			
+			return str(self.value)			
 		
 
-	def roll_die():
+	def roll_die(self):
 		"""randomly genearate the value of the die """
-		self.value = randint(1,sides)
+		if self.locked == False:
+
+			self.value = randint(1,self.sides)
 
 
 
