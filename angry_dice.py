@@ -35,17 +35,18 @@ def main():
 		if eval_stage_complete(die_1, die_2):
 			current_stage += 1
 			unlock_die(die_1, die_2)
+			
 			if current_stage > 3:
 				print ("You've Won")
 				break
 			else:
 				print ("\nYou've reached Stage {}!\n ".format(current_stage))
+				continue
 
-		else:
-			lock_die(die_1, die_2)
 
-	else:
-		exit()
+		lock_die(die_1, die_2)
+		eval_locked_die(die_1, die_2)
+
 
 
 
@@ -131,36 +132,61 @@ def lock_die(die_1, die_2):
 
 
 	status_list = [die_1.locked, die_2.locked]
+	if die_1.locked == False:
+		die_1_status = input("Would you like to lock die_1? Press (Y)es or (N)o. ").upper()
 
-	die_1_status = input("Would you like to lock die_1? Press (Y)es or (N)o. ").upper()
+		if die_1_status == "Y":
+			die_1.locked = True
 
-	if die_1_status == "Y":
-		die_1.locked = True
+	if die_2.locked == False:
+		die_2_status = input("Would you like to lock die_2? Press (Y)es or (N)o. ").upper()
 
-
-	die_2_status = input("Would you like to lock die_2? Press (Y)es or (N)o. ").upper()
-
-	if die_2_status == "Y":
-		die_2.locked = True
+		if die_2_status == "Y":
+			die_2.locked = True
 
 
 
 def unlock_die(die_1, die_2):
+	"""Unlock the die after rolling"""
 	die_1.locked = False
 	die_2.locked = False
 
 
 
 def eval_locked_die(die_1, die_2):
-	"""Evaluates die if it's allowed to roll"""
-	#"""Evaluate if the user is allowed to lock the die. Prompt user if unable to lock die or return to roll_dice()"""
+	"""Evaluate if the user is allowed to lock the die. Prompt user if unable to lock die or return to roll_dice()"""
 
-	if die_1.locked == False:
-		roll(die_1)
+	if die_1.locked == True:
+		if die_1.value not in stage_goals[current_stage]:
+			die_1.locked = False
+			print("You're not allowed to lock a {} on stage {}".format(die_1.value, current_stage))
+
+		
+		elif die_1.value == 6:
+			die_1.locked = False
+			print("You're not allowed to lock a {} on stage {}".format(die_1.value, current_stage))
+
+	if die_2.locked == True:
+		if die_2.value not in stage_goals[current_stage]:
+			die_2.locked = False
+			print("You're not allowed to lock a {} on stage {}".format(die_2.value, current_stage))	
+
+		elif die_2.value == 6:
+			die_2.locked = False
+			print("You're not allowed to lock a {} on stage {}".format(die_2.value, current_stage))
+
+	if die_1.locked == True and die_2.locked == True:
+		if die_1.value == die_2.value:
+			print("You can only lock one die of the same value. We'll only lock die_1 for you.")
+			die_2.locked = False
 
 
-	if die_2.locked == False:
-		roll(die_2)
+#	if die_1.locked == False:
+#		roll(die_1)
+
+
+#	if die_2.locked == False:
+#		roll(die_2)
 
 	
 
