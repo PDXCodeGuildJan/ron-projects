@@ -5,34 +5,48 @@ __author__ = "Ron Shafii"
 
 from random import randint
 
+stage_goals = {1:[1,2], 2:[3,4], 3:[5,6]}
 
+current_stage = 1
 
 
 def main():
 
+	global current_stage
 
 	#create 2 die
 	die_1 = Die(6)
 	die_2 = Die(6)
-	current_stage = 1
-	stage_goals = {1:[1,2], 2:[3,4], 3:[5,6]}
+	
+
+	display_welcome()
+
+	while current_stage <= 3:
+
+		roll(die_1, die_2)
 
 
-	#display_welcome()
-
-	#print(die_1, die_2)
-
-
-	#die_1.roll_die()
-	#die_2.roll_die()
-	roll(die_1, die_2)
+		if eval_angry_die(die_1, die_2):
+			current_stage = 1
+			unlock_die(die_1, die_2)
+			continue
 
 
+		if eval_stage_complete(die_1, die_2):
+			current_stage += 1
+			unlock_die(die_1, die_2)
+			if current_stage > 3:
+				print ("You've Won")
+				break
+			else:
+				print ("\nYou've reached Stage {}!\n ".format(current_stage))
 
+		else:
+			lock_die(die_1, die_2)
 
+	else:
+		exit()
 
-	#if eval_angry_die = True
-		#if true then return to stage 1
 
 
 
@@ -67,7 +81,7 @@ def roll(die_1, die_2):
 	#if die_1 isn't locked roll the die
 	die_1.roll_die()
 
-	# if doe_2 isn't locked roll the die
+	# if die_2 isn't locked roll the die
 	die_2.roll_die()
 
 
@@ -82,7 +96,7 @@ def display_die(die_1, die_2):
 
 
 
-def eval_angry_die():
+def eval_angry_die(die_1, die_2):
 	"""evaluates whether user rolled 2 angry faces and returns them to stage 1"""
 
 	if die_1.value == 3 and die_2.value == 3:
@@ -96,60 +110,59 @@ def eval_angry_die():
 
 
 
-def eval_stage_complete():
+def eval_stage_complete(die_1, die_2):
 	"""evaluates whether to move to the next stage or not"""
 
-	pass
 
+	if die_1.value in stage_goals[current_stage] and die_2.value in stage_goals[current_stage] and die_1.value != die_2.value:
+		return True
 
-
-def update_stage():
-	"""advances the user to the next stage"""
-
-
-
-
-	pass
-
-
-
-def win():
-	""" tells the user when they won"""
-	pass
+	else:
+		return False
+	
 
 
 
 
 
 
-
-
-def lock_die():
+def lock_die(die_1, die_2):
 	"""Prompts the user if they would like to lock a die. Create a die_status to pass to roll_dice() to prevent it from being rolled."""
 
-	status_list = [die_1.lock, die_2.lock]
+
+	status_list = [die_1.locked, die_2.locked]
 
 	die_1_status = input("Would you like to lock die_1? Press (Y)es or (N)o. ").upper()
 
-	if "Y":
-		die_1.lock = True
+	if die_1_status == "Y":
+		die_1.locked = True
 
 
 	die_2_status = input("Would you like to lock die_2? Press (Y)es or (N)o. ").upper()
 
-	if "Y":
-		die_2.lock = True
+	if die_2_status == "Y":
+		die_2.locked = True
 
 
 
+def unlock_die(die_1, die_2):
+	die_1.locked = False
+	die_2.locked = False
 
 
 
+def eval_locked_die(die_1, die_2):
+	"""Evaluates die if it's allowed to roll"""
+	#"""Evaluate if the user is allowed to lock the die. Prompt user if unable to lock die or return to roll_dice()"""
 
-def eval_locked_die():
-	"""Evaluate if the user is allowed to lock the die. Prompt user if unable to lock die or return to roll_dice()"""
+	if die_1.locked == False:
+		roll(die_1)
 
-	pass
+
+	if die_2.locked == False:
+		roll(die_2)
+
+	
 
 
 
@@ -176,7 +189,7 @@ class Die:
 		if self.value == 3:
 			return "Angry Face"
 		else:
-			return str(self.value)			
+			return str(self.value)		
 		
 
 	def roll_die(self):
@@ -195,4 +208,5 @@ class Die:
 
 if __name__ == '__main__':
 	main()
+
 
