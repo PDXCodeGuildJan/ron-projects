@@ -11,7 +11,9 @@ current_stage = 1
 
 
 def main():
+	"""Run the program through iterative steps previously created in our flowchart."""
 
+	#make sure current_stage can be updated within main()
 	global current_stage
 
 	#create 2 die
@@ -21,17 +23,18 @@ def main():
 
 	display_welcome()
 
+	# as long as we haven't won the game run the following loop
 	while current_stage <= 3:
-
+		#roll 2 dice
 		roll(die_1, die_2)
 
-
+		#check to see if 2 angry dice were rolled, otherwise continue through loop
 		if eval_angry_die(die_1, die_2):
 			current_stage = 1
 			unlock_die(die_1, die_2)
 			continue
 
-
+		#
 		if eval_stage_complete(die_1, die_2):
 			current_stage += 1
 			unlock_die(die_1, die_2)
