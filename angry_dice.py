@@ -68,7 +68,7 @@ def display_welcome():
 	print("The computer will not automatically hold the die for you, so pay attention.\n")
 
 	print("If you roll two Angry Faces you will be forced to restart the entire game.")
-	print("You can't lock a six.\n")
+	print("You can't lock a six except on Stage 3.\n")
 
 	input("Press ENTER to start the game!\n")
 
