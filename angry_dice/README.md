@@ -29,6 +29,6 @@ Angry Dice is a real-time dice rolling microgame now available as a Python progr
 - All files relevant to this game will reside in a directory called "angry_dice", including this README, within the students Repo.
 
 
-###To Do
+#####To Do
 - Add a 2nd player
 - 
