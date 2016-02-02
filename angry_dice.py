@@ -114,7 +114,6 @@ def eval_angry_die(die_1, die_2):
 def eval_stage_complete(die_1, die_2):
 	"""evaluates whether to move to the next stage or not"""
 
-
 	if die_1.value in stage_goals[current_stage] and die_2.value in stage_goals[current_stage] and die_1.value != die_2.value:
 		return True
 
@@ -146,10 +145,14 @@ def lock_die(die_1, die_2):
 
 
 
+
+
 def unlock_die(die_1, die_2):
 	"""Unlock the die after rolling"""
 	die_1.locked = False
 	die_2.locked = False
+
+
 
 
 
@@ -179,21 +182,6 @@ def eval_locked_die(die_1, die_2):
 		if die_1.value == die_2.value:
 			print("You can only lock one die of the same value. We'll only lock die_1 for you.")
 			die_2.locked = False
-
-
-#	if die_1.locked == False:
-#		roll(die_1)
-
-
-#	if die_2.locked == False:
-#		roll(die_2)
-
-	
-
-
-
-
-
 
 
 
