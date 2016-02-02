@@ -31,4 +31,3 @@ Angry Dice is a real-time dice rolling microgame now available as a Python progr
 
 #####To Do
 - Add a 2nd player
-- 
