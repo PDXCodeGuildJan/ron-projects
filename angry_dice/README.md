@@ -6,8 +6,8 @@ Angry Dice is a real-time dice rolling microgame now available as a Python progr
 
 
 ## Requirements
-- Write a game of Angry Dice following this flowchart:
-[Click to view Gliffy Flowchart](http://www.gliffy.com/go/publish/9892305)
+
+- Write a game of Angry Dice following the flowchart below.
 - Create 2 die.
 - Replace the number 3 with the name "Angry Face"
 - Make sure to include 3 stages.
@@ -16,6 +16,9 @@ Angry Dice is a real-time dice rolling microgame now available as a Python progr
 - At Stage 3 player must roll a 5 and 6 to win the game.
 - The player can't lock a 6 unless they are on Stage 3.
 - Requires the player to start at the beginning if they ever roll double Angry Faces (the 3).
+
+- Angry Dice following this flowchart
+![Angry Dice flowchart](https://raw.githubusercontent.com/PDXCodeGuildJan/ron-projects/master/angry_dice/angry_dice_flowchart.jpg)
 
 
 ### Programing Concepts
