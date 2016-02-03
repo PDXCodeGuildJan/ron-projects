@@ -34,11 +34,11 @@ def main():
 			unlock_die(die_1, die_2)
 			continue
 
-		#
+		#evaluates whether the stage has been completed and advances to next stage if allowed
 		if eval_stage_complete(die_1, die_2):
 			current_stage += 1
 			unlock_die(die_1, die_2)
-			
+			# if we've completed stage 3 tell the player they won
 			if current_stage > 3:
 				print ("You've Won")
 				break
@@ -100,6 +100,9 @@ def display_die(die_1, die_2):
 
 
 
+
+
+
 def eval_angry_die(die_1, die_2):
 	"""evaluates whether user rolled 2 angry faces and returns them to stage 1"""
 
@@ -114,6 +117,7 @@ def eval_angry_die(die_1, die_2):
 
 
 
+
 def eval_stage_complete(die_1, die_2):
 	"""evaluates whether to move to the next stage or not"""
 
@@ -123,6 +127,7 @@ def eval_stage_complete(die_1, die_2):
 	else:
 		return False
 	
+
 
 
 
@@ -150,10 +155,12 @@ def lock_die(die_1, die_2):
 
 
 
+
 def unlock_die(die_1, die_2):
 	"""Unlock the die after rolling"""
 	die_1.locked = False
 	die_2.locked = False
+
 
 
 
@@ -183,7 +190,7 @@ def eval_locked_die(die_1, die_2):
 
 	if die_1.locked == True and die_2.locked == True:
 		if die_1.value == die_2.value:
-			print("You can only lock one die of the same value. We'll only lock die_1 for you.")
+			print("You can only lock one die of the same value. We'll unlock die_2 for you.")
 			die_2.locked = False
 
 
@@ -223,7 +230,10 @@ class Die:
 
 
 
+
 if __name__ == '__main__':
 	main()
+
+
 
 
