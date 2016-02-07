@@ -218,28 +218,28 @@ li .image {
 	border: 1px solid #dcd5ad;
 	}
 	
-.question {
+.project {
 	margin-top: 20px;
 	border: 1px solid #e5e5e5;
 	padding: 10px;
 	background: #f7f7f7;
 	}
 	
-.question h6 {
+.project-title h6 {
 	color: #3076bd;
 	}
 	
-.answer {
+.project-desc {
 	padding-left: 10px;
 	margin-top:10px;
 	}
 	
-.one-left {
+.left-column {
 	width: 300px;
 	float: left;
 	}
 	
-.one-right {
+.right-column {
 	width: 300px;
 	float: right;
 	}
