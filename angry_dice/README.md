@@ -33,7 +33,8 @@ Angry Dice is a real-time dice rolling microgame now available as a Python progr
 
 
 ##### Installation
-- From the terminal navigate to the angry_dice directory and type `python3 angry_dice.py`
+- From the terminal navigate to the `angry_dice` directory and type `python3 angry_dice.py`
+
 
 ######To Do
 - Display Dice as ASCII art to the console
