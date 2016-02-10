@@ -6,7 +6,7 @@
 html, body {
 	background: #EEEEEE;
 	font-family: sans-serif;
-	margin-bottom: 50px;
+	margin: 50px 0;
 
 }
 
@@ -19,7 +19,7 @@ html, body {
 }
 
 
-h1, h2, h3{
+h1, h2, h3 {
 	font-family: 'Nova Square', cursive;
 }
 
@@ -62,13 +62,13 @@ h3 {
 
 
 
-main  {
+main {
 	display: inline-block;
 	width: 460px;
 
 }
 
-article{
+article {
 	background-color: #FFF6E0;
 	color: #000;
 	box-shadow: 30px 40px #7AB3B0;
@@ -80,7 +80,7 @@ article{
 }
 
 
-.resources{
+.resources {
 	display: none;
 }
 
@@ -92,7 +92,7 @@ footer {
 }
 
 
-footer>a{
+footer>a {
 	color:#FFF6E0;
 	background-color: #908673;
 	display: inline;
@@ -105,7 +105,7 @@ footer>a{
 
 
 
-li{
+li {
 	width: 175px;
 	list-style: none;
 	background-color: #E23045;
@@ -118,7 +118,7 @@ li{
 
 
 
-li>a{
+li>a {
 	text-decoration: none;
 	color: #FFF6E0;
 }
