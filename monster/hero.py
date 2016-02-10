@@ -34,6 +34,8 @@ class Monster_hero(Monster, Hero):
 		Monster.__init__(self)
 		Hero.__init__(self)
 
+		
+
 
 
 		self.second_weapon = None

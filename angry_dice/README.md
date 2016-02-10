@@ -30,8 +30,12 @@ Angry Dice is a real-time dice rolling microgame now available as a Python progr
 #### Implementation Notes
 - This version of Angry Dice only includes a Die Class.
 - All files relevant to this game will reside in a directory called "angry_dice", including this README, within the students Repo.
-- From the console navigate to the angry_dice directory and type "python3 angry_dice.py".
 
 
-#####To Do
+##### Installation
+- From the terminal navigate to the `angry_dice` directory and type `python3 angry_dice.py`
+
+
+######To Do
+- Display Dice as ASCII art to the console
 - Add a 2nd player
