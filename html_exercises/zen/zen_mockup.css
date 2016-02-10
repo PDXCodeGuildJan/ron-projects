@@ -2,13 +2,13 @@
 @import url(https://fonts.googleapis.com/css?family=Arimo);
 
 
-@font-face {
+/*@font-face {
   font-family: 'Nova Square';
   src: url(https://fonts.googleapis.com/css?family=Nova+Square);
   font-family: 'Arimo', sans-serif;
   src: url(https://fonts.googleapis.com/css?family=Arimo);
 
-}
+}*/
 
 
 html, body {
@@ -18,6 +18,34 @@ html, body {
   margin: 0;
   font-family: 'Arimo', sans-serif;
 }
+
+p, a{
+	font-family: 'Arimo', sans-serif;
+}
+
+
+/*   Headings    */
+h1 {
+	font-family: 'Nova Square', cursive;
+	font-weight: normal;
+	font-size: 2.5em;
+	color: #E23045;
+	background: EEEEEE;
+}
+
+h2 {
+	
+	font-family: 'Nova Square', cursive;
+	font-weight: normal;
+	color: #FFF6E0;
+	background-color: #E23045;
+}
+
+h3 {
+	font-family: 'Nova Square', cursive;
+	font-weight: normal;
+}
+
 
 
 #css-zen-garden {
@@ -50,8 +78,8 @@ html, body {
 	}
 
 main  {
+	display: inline-block;
 	width: 460px;
-
 }
 
 
@@ -75,17 +103,23 @@ main  {
 	padding: 0 20px;
 }
 
-footer a {
-	background:#908673;
-	text-align: right !important;
-	/*margin-left: 380px;*/
 
-}
-
-
-.resources {
+.resources{
 	display: none;
 }
+
+footer>a{
+	color:#FFF6E0;
+	background-color: #908673;
+	display: inline;
+	padding: 5px;
+	margin: 23px -522px 825px 535px;
+	text-decoration: none;
+	border-radius: 2px;
+	box-shadow: 10px 15px 0 #D8CFBC;
+}
+
+
 
 
 li{
@@ -100,38 +134,28 @@ li{
 }
 
 
-.sidebar {
-
-
-}
-
-
-a {
-    text-decoration: none;
-}
-
-
-/*   Headings    */
-h1 {
-	font-family: 'Nova Square', cursive;
-	font-weight: normal;
-	font-size: 2.5em;
-	color: #E23045;
-	background: EEEEEE;
-}
-
-h2 {
-	
-	font-family: 'Nova Square', cursive;
-	font-weight: normal;
+li>a{
+	text-decoration: none;
 	color: #FFF6E0;
-	background-color: #E23045;
 }
 
-h3 {
-	font-family: 'Nova Square', cursive;
-	font-weight: normal;
+
+.sidebar {
+	text-align: center;
+	vertical-align: top;
+	display: inline-block;
+    margin-top: -15px;
+    margin-left: 75px;
+
 }
+
+
+p>a {
+	color: #E12E43;
+	text-decoration: none;
+}
+
+
 
 
 
