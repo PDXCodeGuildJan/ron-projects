@@ -16,6 +16,7 @@ html, body {
   height: 100%;
   padding: 100;
   margin: 0;
+  font-family: 'Arimo', sans-serif;
 }
 
 
@@ -87,9 +88,15 @@ footer a {
 }
 
 
-.zen-resources ul{
+li{
+	width: 175px;
 	list-style: none;
-
+	background-color: #E23045;
+	box-shadow: 10px 10px #F59581;
+	margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
 }
 
 
@@ -98,6 +105,10 @@ footer a {
 
 }
 
+
+a {
+    text-decoration: none;
+}
 
 
 /*   Headings    */
@@ -124,10 +135,5 @@ h3 {
 
 
 
-
-
-p {
-	font-family: 'Arimo', sans-serif;
-}
 
 
