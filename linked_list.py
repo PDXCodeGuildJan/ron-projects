@@ -59,13 +59,22 @@ class LinkedList():
         pass
 
 
+
+
     def __str__(self):
+        current_node = self.head
         
-        #create an empty list 
+
+         #create a variable to hold the current item
+
+
+
+        #create a  list and loop through the different heads of the item
          node_list = []
 
 
          #grab the values from the nodes and place them into the list
+         node_list.append(current_node.value)
 
 
 
@@ -74,10 +83,9 @@ class LinkedList():
 
 
 
+        
 
-        #create a variable to hold the current item
-
-        #create a  list and loop through the different heads of the item
+        
        
 
 

@@ -47,10 +47,23 @@ html {
 	position: relative;
 	}
 
+
+
+
 body {
-	font-family: Helvetica, Arial, sans-serif; font-size:13px; color:#4c4c4c; text-align: left; line-height:21px;
+	font-family: Helvetica, Arial, sans-serif; 
+	font-size:13px; 
+	color:#4c4c4c; 
+	text-align: left; 
+	line-height:21px;
 	position: relative;
 	background: #f7f7f7;
+
+	text-align: left;
+    margin: 0 auto;
+	width: 56%;
+	min-width: 460px;
+
 	}
 ::selection { background:#169e69; color:#fff; }
 ::-moz-selection { background:#169e69; color:#fff; }
@@ -152,6 +165,11 @@ div p:first-child {
 	
 #sidebar {
 	width: 240px;
+
+	vertical-align: top;
+	display: inline-block;
+    margin-top: 80px;
+
 	}
 	
 #content {
