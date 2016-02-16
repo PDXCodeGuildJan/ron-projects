@@ -7,20 +7,28 @@ __author__ = "Ron Shafii"
 class MasterModel:
 	"""determines #of guesses, computer generated goal, and history of player's guesses"""
 
+	peg_colors = ["red", "green", "blue", "yellow", "black", "white"] #colors of pegs
+
 	def __init__(self):
 		self.guess_num = None #keeps track of the player guess counter
 		self.goal = [] #four random computer generated pegs
-		self.guesses = [Guess] #appended list of all player's guesses for the whole game
-		self.peg_colors = ["red", "green", "blue", "yellow", "black", "white"]
-		self.save_goal
+		self.guesses = [Guess.player_peg] #appended list of all player's guesses for the whole game
+		self.key_list = [Guess.key_peg] #list of previous computer responses to the player
+
+
+
 
 class Guess:
-	"""stores history of player pegs and key pegs"""
+	"""stores guess of player pegs and key pegs"""
 
-	def __init__(self):
-		self.player_peg = [] #list that stores player's guesses (4 colored pegs each guess)
-		self.key_peg = [] #list that stores the key pegs (black and white pegs that match player's guesses)
-
+	def __init__(self, peg1, peg2, peg3, peg4):
+		#build out the pieces that exist in the model
+		#self.peg1 = [] #list strings that stores player's current guess (4 colored pegs each guess)
+		#self.key_peg = [] #list that stores the key pegs (black and white pegs that match player's guesses)
+		self.peg1 = peg1
+		self.peg2 = peg2
+		self.peg3 = peg3
+		self.peg4 = peg4
 
 
 

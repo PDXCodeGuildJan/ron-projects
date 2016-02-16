@@ -35,22 +35,30 @@ class MasterView:
 
 	def prompt_user(self):
 		"""Prompts the user to choose 4 colored pegs."""
-		pass
+		#ask the user pick 4 colors in a sequence of their choice
+		input = ("Type the 4 colors you would like to enter.")
+		#store and display the player's input
+		#send to Check Win
+
 
 
 	def win(self):
 		"""Displays to the player "They Won!" """
+		#if check_win is True  
 		pass
 
 
 
 	def lose(self):
 		"""Displays to the player "Sorry, You Lose." """
+		#if guess_num reaches 10 guesses display game over
 		pass
 
 
 	def show_key_peg(self):
 		"""Displays a series of black or white key pegs stored in the class Guess."""
+		#displays the results from eval_peg_position. If nothing to display then 
+		#then print Nothing to Display to the player.
 		pass
 
 
