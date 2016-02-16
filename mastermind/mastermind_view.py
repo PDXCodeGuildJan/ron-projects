@@ -4,7 +4,7 @@ This file is the view."""
 __author__ = "Ron Shafii"
 
 
-class Masterview:
+class MasterView:
 
 
 	def show_rules():
@@ -28,4 +28,3 @@ class Masterview:
 
 
 
-		

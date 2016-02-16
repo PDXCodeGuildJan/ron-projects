@@ -5,17 +5,22 @@ __author__ = "Ron Shafii"
 
 
 import mastermind_model
+import mastermind_view
 
 
-class Mastermind:
+
+
+
+class MasterMind:
 
 
 	def __init__(self):
-		self.model: Mastermodel
-		self.view: Masterview
+		self.model: MasterModel
+		self.view: MasterView
 
 
 	def play_game():
+		"""
 		pass
 
 
