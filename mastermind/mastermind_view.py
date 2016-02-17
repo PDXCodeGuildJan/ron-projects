@@ -1,8 +1,11 @@
 """Implement an MVC Mastermind game for one player.
 This file is the view."""
 
-__author__ = "Ron Shafii"
+#The view doesn't know the contoller or model exist. Ex: gets a phone call, can answer but doesnt know where the phone call came from
 
+__author__ = "Ron Shafii and Sarah Fellows"
+
+import re
 
 class MasterView:
 
@@ -20,49 +23,58 @@ class MasterView:
 		print("match, a white peg a partial match (right color, wrong position)\n\n")
 
 		print("Rules")
-		print("1. The sequence can contain pegs of colors: red, green, blue, yellow, black, and white.\n")
+		print("1. The sequence can contain pegs of colors: (Y)ellow, (B)lue, (G)reen, (W)hite, blac(K), and (R)ed.\n")
 		print("2. A color can be used any number of times in the sequence.\n")
 		print("3. Each guess must consist of 4 peg colors - no blank space are allowed.\n")
 		print("4. You are must guess the computer's sequence within 10 guesses, otherwise you lose the game.\n\n")
 
 
 
-	def show_player_peg(self):
-		"""displays the list of pegs chosen by the player during the current Guess."""
-
-		pass
-
-
 	def prompt_user(self):
 		"""Prompts the user to choose 4 colored pegs."""
 		#ask the user pick 4 colors in a sequence of their choice
-		pegs = input("Type the 4 colors you would like to enter.").lower()
-		#store and display the player's input
-		peg_colors = pegs.split()
-		temp = mastermind_model.Guess(peg_colors[0], peg_colors[1], peg_colors[2], peg_colors[3])
-		
-		#send to Check Win
 
+		#getting the player's input
+		entree = input("Please select the four colors in the sequence of your choice. Remember, your color choices are (Y)ellow, (B)lue, (G)reen, (W)hite, blac(K), and (R)ed.")
+
+		processed = re.fullmatch('^[YBGWKR]{4}$', entree.upper())
+
+		if processed == None:
+
+			print("I do not understand your color selection. Remember your color choices are: (Y)ellow, (B)lue, (G)reen, (W)hite, blac(K), and (R)ed")
+
+		else:
+			return processed.group(0)
+
+		#return the selected user colors to the controller 
+
+
+	def show_player_peg(self, peg_colors):
+		"""displays the list of pegs chosen by the player during the current Guess."""
+
+		print("Here are your choices: ") #this is a placeholder to be edited later 
+		#displaying the colors and postion they chose
 
 
 	def win(self):
 		"""Displays to the player "They Won!" """
 		#if check_win is True  
-		pass
+		#once check_win has determined they won, we show them:
+		print("Congratulations! You guessed the correct peg colors and positions! You won!")
 
-
+		#Maybe display key pegs?
 
 	def lose(self):
 		"""Displays to the player "Sorry, You Lose." """
 		#if guess_num reaches 10 guesses display game over
-		pass
+		print ("Sorry, you didn't guess the correct peg colors or positions in 10 guesses. You loose!")
 
 
 	def show_key_peg(self):
 		"""Displays a series of black or white key pegs stored in the class Guess."""
 		#displays the results from eval_peg_position. If nothing to display then 
 		#then print Nothing to Display to the player.
-		pass
+		print 
 
 
 

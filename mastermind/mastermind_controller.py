@@ -79,6 +79,9 @@ class MasterMind:
 
 
 
+
+
+
 	def eval_peg_color():
 		"""Evaluates whether the player's peg colors matches any of the computer's colors. 
 		Results are stored by class Guess in the model. """
@@ -105,6 +108,8 @@ class MasterMind:
 		#check if player_peg4 position is the same as computer_peg4 position
 
 
+
+			keypeg1 = mastermind_model.KeyPeg(KeyPeg.SMALL_BLACK)
 		pass
 
 
