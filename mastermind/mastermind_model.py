@@ -12,8 +12,8 @@ class MasterModel:
 	def __init__(self):
 		self.guess_num = None #keeps track of the player guess counter
 		self.goal = [] #four random computer generated pegs
-		self.guesses = [Guess.player_peg] #appended list of all player's guesses for the whole game
-		self.key_list = [Guess.key_peg] #list of previous computer responses to the player
+		self.guesses = [] #appended list of all player's guesses for the whole game
+		self.key_list = [] #list of previous computer responses to the player
 
 
 

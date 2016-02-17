@@ -36,8 +36,11 @@ class MasterView:
 	def prompt_user(self):
 		"""Prompts the user to choose 4 colored pegs."""
 		#ask the user pick 4 colors in a sequence of their choice
-		input = ("Type the 4 colors you would like to enter.")
+		pegs = input("Type the 4 colors you would like to enter.").lower()
 		#store and display the player's input
+		peg_colors = pegs.split()
+		temp = mastermind_model.Guess(peg_colors[0], peg_colors[1], peg_colors[2], peg_colors[3])
+		
 		#send to Check Win
 
 

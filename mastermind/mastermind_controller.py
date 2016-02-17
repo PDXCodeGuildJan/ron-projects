@@ -39,6 +39,14 @@ class MasterMind:
 		
 		#takes the results stored from prompt_user and turns it into a True or False statement
 
+		# check if player_peg1 == computer_peg1
+
+		#check if player_peg2 == computer_peg2
+
+		#check if player_peg3 == computer_peg3
+
+		#check if player_peg4 == computer_peg4
+
 
 
 		#if [mastermind_model.Guess.player_peg] == goal
@@ -49,11 +57,21 @@ class MasterMind:
 	def eval_peg_color():
 		"""Evaluates whether the player's peg colors matches any of the computer's colors. 
 		Results are stored by class Guess in the model. """
+
+		#check if player_peg1 color matches any computer_peg color
+
+		#check if player_peg2 color matches any computer_peg color
+
+		#check if player_peg3 color matches any computer_peg color
+
+		#check if player_peg4 color matches any computer_peg color
 		pass
 
 	def eval_peg_position():
 		"""Evaluates whether any of the matched colors from eval_peg_color also match the 
 		correct peg positions and returns a black or white peg as necessary. """
+
+		
 		pass
 
 
