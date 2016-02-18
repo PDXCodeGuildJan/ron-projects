@@ -56,13 +56,14 @@ class LinkedList():
 
     def remove(self, position):
         #ripped from http://stackoverflow.com/questions/28836760/removing-a-node-in-a-linked-list-using-links
-        #finds first thing in a list and removes a value
+        
         current_node = self.head
         previous_node = None
         count = 0
         
         while count != position:
-            if current_node.next_node == 0 #verify node isn't empty
+            #verify node isn't empty
+            if current_node.next_node == None: 
                 print("Invalid Position")
                 return None
 
@@ -132,14 +133,14 @@ def main():
    link.add(4)
    link.add(7)
    print("Current list:", link)
-   link.remove(4)
+   #link.remove(4)
    print("List after first 4 is removed:", link)
 
-   link.remove(4)
+   #link.remove(4)
    print("List after second 4 is removed:", link)
 
    print("Success! Attempt to remove a third 4 yielded no crashes!")
-   link.remove(4)
+   #link.remove(4)
    
    # Output of above code:
    # -------------------------
