@@ -22,7 +22,7 @@ class MasterMind:
 	def generate_goal(self):
 		"""create 4 randomly generated colored pegs to establish the goal of the game."""#need to return to fix use of peg colors
 		# goal = []
-		# temp_list = [PlayerPeg.RED, green, blue, yellow, black, white] NEED TO FIX
+		# temp_list = [PlayerPeg.RED, PlayerPeg.GREEN, PlayerPeg.BLUE, PlayerPeg.YELLOW, PlayerPeg.BLACK, PlayerPeg.WHITE] NEED TO FIX
 		# for x in range(4):
 		# 	player_peg = PlayerPeg(random.choice(MasterModel.peg_colors))
 		# 	goal.append(player_peg)
