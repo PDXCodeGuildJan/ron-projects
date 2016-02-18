@@ -149,6 +149,7 @@ def main():
    # List after second 4 is removed: 2 86 7 
    # Attempt to remove a third 4 yielded no crashes
 
+main()
 
 
 
