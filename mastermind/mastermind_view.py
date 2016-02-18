@@ -51,9 +51,9 @@ class MasterView:
 
 	def show_player_peg(self, peg_colors):
 		"""displays the list of pegs chosen by the player during the current Guess."""
-
-		print("Here are your choices: ") #this is a placeholder to be edited later 
-		#displaying the colors and postion they chose
+		#display the colors and position they chose
+		print("Here is your current guess {} \n".format(processed.group(0))) #double check if this should be prompt_user() or processed.group(0)
+		
 
 
 	def win(self):
@@ -74,7 +74,11 @@ class MasterView:
 		"""Displays a series of black or white key pegs stored in the class Guess."""
 		#displays the results from eval_peg_position. If nothing to display then 
 		#then print Nothing to Display to the player.
-		print 
+		print("Here are the key pegs determined from your guess {},{},{},{}".format(keypeg1, keypeg2, keypeg3, keypeg4)) #To be determined, incomplete
+
+
+	def show_board(Guess):
+		pass
 
 
 
