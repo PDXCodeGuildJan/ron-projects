@@ -21,13 +21,14 @@ class MasterMind:
 
 	def generate_goal(self):
 		"""create 4 randomly generated colored pegs to establish the goal of the game."""#need to return to fix use of peg colors
-		# goal = []
-		# temp_list = [PlayerPeg.RED, PlayerPeg.GREEN, PlayerPeg.BLUE, PlayerPeg.YELLOW, PlayerPeg.BLACK, PlayerPeg.WHITE] NEED TO FIX
-		# for x in range(4):
-		# 	player_peg = PlayerPeg(random.choice(MasterModel.peg_colors))
-		# 	goal.append(player_peg)
-		# return goal 
-		pass
+		goal = []
+		temp_list = [PlayerPeg.RED, PlayerPeg.GREEN, PlayerPeg.BLUE, PlayerPeg.YELLOW, PlayerPeg.BLACK, PlayerPeg.WHITE]
+
+		for x in range(4):
+			player_peg = PlayerPeg(random.choice(temp_list))
+			goal.append(player_peg)
+		return goal 
+		
 
 
 
@@ -87,9 +88,9 @@ class MasterMind:
 		#create a Guess object, move the results stored in temp_list and convert them to an object then store them as a list in guesses
 		temp_object = Guess() #creating an object of the Guess class
 		temp_object.player_pegs = temp_list #change the temp_list to a Guess object 
-		self.model.guesses.append(temp_object) #storing the objects as a list in MasterModel-guesses
+		self.model.current_guess = temp_object #storing the objects as a list in MasterModel-guesses
 
-		print(self.model.guesses)
+		print(self.model.current_guess)
 
 
 		
@@ -99,46 +100,84 @@ class MasterMind:
 
 
 	def check_win(self):
-		"""checks to see if the player's guess (mastermind_model.Guess.player_peg) exactly matches the 
-		4 computer generated pegs (mastermind_model.MasterModel.goal). """
+		"""checks to see if the player's guess (self.model.current_guess) exactly matches the 
+		4 computer generated pegs (self.model.goal). """
 		
-		#takes the results stored from prompt_user and turns it into a True or False statement
+		#checks the player's current guess to see if it's an exact match with goal
+		goal = self.model.goal
+		current_guess = self.model.current_guess.player_pegs
 
-		# check if player_peg1 == computer_peg1
-
-		#check if player_peg2 == computer_peg2
-
-		#check if player_peg3 == computer_peg3
-
-		#check if player_peg4 == computer_peg4
-
-
-
-		#if [mastermind_model.Guess.player_peg] == goal
-		#	print ("You Win!")
-		# if not Win then forward the info to eval_peg_color()
+		if goal == current_guess:
+			return "You've Won!"
 
 
 
 
 
 
-	def eval_peg_color():
+
+	def eval_peg_color(self):
 		"""Evaluates whether the player's peg colors matches any of the computer's colors. 
 		Results are stored by class Guess in the model. """
 
-		#check if player_peg1 color matches any computer_peg color
+		goal = self.model.goal[:]
+		current_guess = self.model.current_guess.player_pegs[:]
+		peg_list = []
 
-		#check if player_peg2 color matches any computer_peg color
 
-		#check if player_peg3 color matches any computer_peg color
+		for i in range(4):
+			if current_guess[i].color == goal[i].color: #if an exact match exists between current_guess and goal exists
+				temp_peg = KeyPeg(key_peg.SMALL_BLACK) #create a vraiable that holds a small_black key_peg 
+				peg_list.append(temp_peg) #add the small_black peg to the peg_list that will be returned to the player
 
-		#check if player_peg4 color matches any computer_peg color
+
+				#insert an empty string to act as a place holder for the matched values in the current_guess list and the goal_list
+				current_guess[i] = ""
+				goal[i] = ""
+
+
+				#compare current objects in remaining current_guess list against objects in remaining goal_list for color match only
+				# to return a the white pegs 
+				elif:
+
+
+
+				#compare the remaining current_guess object color values against the remaining goal_list object colors and return a white peg for each match
+
+
+
+
+
+
+				# if current_guess[i].color != goal[i].color and current_guess[i].color in goal:
+				# 	temp_peg2 = KeyPeg(key_peg.SMALL_WHITE)
+				# 	peg_list.append(temp_peg2)
+
+
+
+		print(peg_list)
+
+		#check if player_peg1 color matches any computer_peg color that hasn't been spoken for already
+
+		#check if player_peg2 color matches any computer_peg color that hasn't been spoken for already
+
+		#check if player_peg3 color matches any computer_peg color that hasn't been spoken for already
+
+		#check if player_peg4 color matches any computer_peg color that hasn't been spoken for already
 		pass
 
-	def eval_peg_position():
+
+
+
+	def eval_peg_position(self):
 		"""Evaluates whether any of the matched colors from eval_peg_color also match the 
 		correct peg positions and returns a black or white peg as necessary. """
+
+
+
+
+
+		#guessed_positions = 0
 
 		#check if player_peg1 position is the same as computer_peg1 position
 
@@ -167,3 +206,13 @@ class MasterMind:
 
 # test()
 
+def main():
+	MasterModel.goal = [RGBW]
+	MasterModel.current_guess = [RGBW]
+
+	test_object = MasterMind()
+	#test_object.store_player_pegs()
+	test_object.check_win()
+
+
+main()

@@ -78,6 +78,7 @@ class MasterView:
 
 
 	def show_board(Guess):
+		"""display player's pegs and key pegs from the stored guesses"""
 		pass
 
 

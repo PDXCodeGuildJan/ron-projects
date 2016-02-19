@@ -13,7 +13,7 @@ class MasterModel:
 		self.guess_num = None #keeps track of the player guess counter
 		self.goal = [] #four random computer generated pegs
 		self.guesses = [] #appended list of all player's guesses for the whole game
-
+		self.current_guess = None
 
 
 
