@@ -4,7 +4,11 @@ __author__ = "Ron Shafii"
 
 
 
+class Weapon:
+	"""weapon object creatures can use"""
 
+	def __init__(self, attack_value):
+		self.base_damage = attack_value
 
 
 
@@ -37,7 +41,19 @@ class Creature:
 
 
 	def attack(self):
-		pass
+		"""return the attack value of the creature given its base attack value, weapon attack value and state"""
+
+
+		attack_value = self.attack_points
+
+		#if we have a weapon add the weapond's damaage to attack_value
+		if self.weapon:
+			attack_value += self.weapon.base_damage
+
+
+		#return total calculated damage
+		#return self.attack_points
+		return attack_value
 
 
 

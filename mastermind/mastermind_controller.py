@@ -1,6 +1,6 @@
 """Implement an MVC Mastermind game for one player. This file is the controller."""
 
-__author__ = "Ron Shafii"
+__author__ = "Ron Shafii and Sarah Fellows"
 
 
 from mastermind_model import * #imports all classes
@@ -205,4 +205,5 @@ def main():
 
 
 if __name__ == '__main__':
+main()
 
