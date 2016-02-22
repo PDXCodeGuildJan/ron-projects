@@ -181,7 +181,7 @@ def test_eval_peg_color():
 
 	test_instance.eval_peg_color()
 
-test_eval_peg_color()
+
 
 
 
@@ -193,7 +193,7 @@ def test():
 		print(peg.color)
 
 
-test()
+
 
 def main():
 	MasterModel.goal = [RGBW]
@@ -205,5 +205,7 @@ def main():
 
 
 if __name__ == '__main__':
-main()
+	main()
+	test()
+	test_eval_peg_color()
 
