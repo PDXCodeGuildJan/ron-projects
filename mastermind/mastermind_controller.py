@@ -27,8 +27,7 @@ class MasterMind:
 		for x in range(4):
 			player_peg = PlayerPeg(random.choice(temp_list))
 			goal.append(player_peg)
-
-		self.model.goal = goal 
+		return goal 
 		
 
 
@@ -91,7 +90,15 @@ class MasterMind:
 		temp_object.player_pegs = temp_list #change the temp_list to a Guess object 
 		self.model.current_guess = temp_object #storing the objects as a list in MasterModel-guesses
 
+		print(self.model.current_guess)
+
+
 		
+
+
+
+
+
 	def check_win(self):
 		"""checks to see if the player's guess (self.model.current_guess) exactly matches the 
 		4 computer generated pegs (self.model.goal). """
@@ -104,84 +111,88 @@ class MasterMind:
 			return "You've Won!"
 
 
-	def eval_player_guess(self):
 
-		"""Evaluates the players peg guesses against the goal and returns key pegs """
 
-		 
-		#Results are stored by class Guess in the model.
-		
+
+
+
+	def eval_peg_color(self):
+		"""Evaluates whether the player's peg colors matches any of the computer's colors. 
+		Results are stored by class Guess in the model. """
+
 		goal = self.model.goal[:]
 		current_guess = self.model.current_guess.player_pegs[:]
 		peg_list = []
 
-		#First for loop checks for exact match (color and position) and replaces each match with an empty string so duplations won't be made in future loop
+
 		for i in range(4):
+			if current_guess[i].color == goal[i].color: #if an exact match exists between current_guess and goal exists
+				temp_peg = KeyPeg(key_peg.SMALL_BLACK) #create a vraiable that holds a small_black key_peg 
+				peg_list.append(temp_peg) #add the small_black peg to the peg_list that will be returned to the player
 
-			#if an exact match exists between current_guess and goal exists
-			if current_guess[i].color == goal[i].color: 
-				#create a variable that holds a small_black key_peg 
-				temp_peg = KeyPeg(KeyPeg.SMALL_BLACK) 
-				#add the small_black peg to the peg_list that will be returned to the player
-				peg_list.append(temp_peg)
 
-				#Testing print function to be removed later - wanting to show black key pegs 
-				print("Adding black pegs because of", goal[i].color)
-				
 				#insert an empty string to act as a place holder for the matched values in the current_guess list and the goal_list
-				#removes the matched colors/position in guess 
-				current_guess.pop(i) 
-				#replaces what was taken out with .pop and inserts an empty string in its place
-				current_guess.insert(i, "")
-				#need to do the same with the goal to avoid dulplicates 
-				goal.pop(i)
-				goal.insert(i, "")
+				current_guess[i] = ""
+				goal[i] = ""
 
-				
-				 
-		#compare current objects in remaining current_guess list against objects in remaining goal_list for color match only and return a white peg 
-		for i in range(4): 
-			#As long as the object isn't an empty string... 
-			if current_guess[i] != "": 
-			 	
-			 	#Start second loop to iterate through guess list after a match occurs 
-			 	for k in range(4):
-			 		#Ignore any empty strings in the list
-			 		if goal[k] != "":
-			 			#if remaining colors in the guess list matches remaining colors in the goal list
-				 		if current_guess[i].color == goal[k].color: 
-				 			#create a white peg if remaining colors match 
-						 	temp_peg2 = KeyPeg(KeyPeg.SMALL_WHITE)
-						 	peg_list.append(temp_peg2)
 
-						 	#used for testing only
-						 	print("Adding white pegs because of", goal[k].color)
+				#compare current objects in remaining current_guess list against objects in remaining goal_list for color match only
+				# to return a the white pegs 
+				elif:
 
-						 	#replaces matches with emprty string to avoid duplicates 
-						 	goal.pop(k)
-						 	goal.insert(k, "")
 
-						 	break #we want to stop going through the loop once we find one to avoid dups, not continue  
 
-		#we need to store peg list with the history of guesses
-		self.model.current_guess.key_pegs = peg_list
-
-		print(len(peg_list)) #Need to get rid of this eventually 
+				#compare the remaining current_guess object color values against the remaining goal_list object colors and return a white peg for each match
 
 
 
 
 
-def test_eval_peg_color():
-	test_instance = MasterMind() #new object of the game
-	test_instance.generate_goal() #generated a goal 
-	for peg in test_instance.model.goal:
-		print(peg)
-	test_instance.store_player_pegs() #prompts for the guess 
 
-	test_instance.eval_peg_color()
+				# if current_guess[i].color != goal[i].color and current_guess[i].color in goal:
+				# 	temp_peg2 = KeyPeg(key_peg.SMALL_WHITE)
+				# 	peg_list.append(temp_peg2)
 
-test_eval_peg_color()
+
+
+		print(peg_list)
+
+		#check if player_peg1 color matches any computer_peg color that hasn't been spoken for already
+
+		#check if player_peg2 color matches any computer_peg color that hasn't been spoken for already
+
+		#check if player_peg3 color matches any computer_peg color that hasn't been spoken for already
+
+		#check if player_peg4 color matches any computer_peg color that hasn't been spoken for already
+		pass
+
+
+
+
+	def eval_peg_position(self):
+		"""Evaluates whether any of the matched colors from eval_peg_color also match the 
+		correct peg positions and returns a black or white peg as necessary. """
+
+
+
+
+
+		#guessed_positions = 0
+
+		#check if player_peg1 position is the same as computer_peg1 position
+
+		#check if player_peg2 position is the same as computer_peg2 position
+
+		#check if player_peg3 position is the same as computer_peg3 position
+
+		#check if player_peg4 position is the same as computer_peg4 position
+
+
+
+			#keypeg1 = mastermind_model.KeyPeg(KeyPeg.SMALL_BLACK)
+		pass
+
+
 
 
 
@@ -195,13 +206,13 @@ test_eval_peg_color()
 
 # test()
 
-# def main():
-# 	MasterModel.goal = [RGBW]
-# 	MasterModel.current_guess = [RGBW]
+def main():
+	MasterModel.goal = [RGBW]
+	MasterModel.current_guess = [RGBW]
 
-# 	test_object = MasterMind()
-# 	#test_object.store_player_pegs()
-# 	test_object.check_win()
+	test_object = MasterMind()
+	#test_object.store_player_pegs()
+	test_object.check_win()
 
-
-# main()
+if __name__ == '__main__':
+	main()
