@@ -49,10 +49,10 @@ class MasterView:
 		#return the selected user colors to the controller 
 
 
-	def show_player_peg(self, peg_colors):
-		"""displays the list of pegs chosen by the player during the current Guess."""
-		#display the colors and position they chose
-		print("Here is your current guess {} \n".format(processed.group(0))) #double check if this should be prompt_user() or processed.group(0)
+	# def show_player_peg(self, peg_colors):
+	# 	"""displays the list of pegs chosen by the player during the current Guess."""
+	# 	#display the colors and position they chose
+	# 	print("Here is your current guess {} \n".format(processed.group(0))) #double check if this should be prompt_user() or processed.group(0)
 		
 
 
@@ -70,16 +70,22 @@ class MasterView:
 		print ("Sorry, you didn't guess the correct peg colors or positions in 10 guesses. You loose!")
 
 
-	def show_key_peg(self):
-		"""Displays a series of black or white key pegs stored in the class Guess."""
-		#displays the results from eval_peg_position. If nothing to display then 
-		#then print Nothing to Display to the player.
-		print("Here are the key pegs determined from your guess {},{},{},{}".format(keypeg1, keypeg2, keypeg3, keypeg4)) #To be determined, incomplete
+	# def show_key_peg(self):
+	# 	"""Displays a series of black or white key pegs stored in the class Guess."""
+	# 	#displays the results from eval_peg_position. If nothing to display then 
+	# 	#then print Nothing to Display to the player.
+	# 	print("Here are the key pegs determined from your guess {},{},{},{}".format(keypeg1, keypeg2, keypeg3, keypeg4)) #To be determined, incomplete
 
 
-	def show_board(Guess):
-		"""display player's pegs and key pegs from the stored guesses"""
-		pass
+	def show_board(self, guesses):
+		"""display the entire history of the player's pegs and key pegs from the stored guesses"""
+
+		#displays the colors and position of the player's current and previous guesses 
+		#as well as the key pegs based on the player's guess
+		for guess in guesses:
+			print("Here is all your guesses {} and key pegs {}\n".format(guess.player_pegs, guess.key_pegs))
+
+
 
 
 

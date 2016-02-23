@@ -37,17 +37,20 @@ class MasterMind:
 		"""plays the mastermind game"""
 
 		#Show the game rules and objectives
+		self.view.show_rules()
 
+		# Generate the Goal
+		self.generate_goal()
 
 		#prompt the user to enter 4 colors
-
+		self.store_player_pegs()
 
 		#check if the user won 
-
 
 			#if the user didn't win evaluate the player's peg colors against the computer_peg colors
 			#if no colors match display to the user Nothing to display
 
+		self.eval_player_guess()
 
 				#if player colors match then evaluate if any of the player's pegs position match the computer's peg positions
 				#return the appropriate position and color matches to the player
@@ -57,9 +60,10 @@ class MasterMind:
 			#if the number of guesses == 0 then display they lost the game.
 
 			#loop back to prompt the user to enter 4 colors 
+		self.model.guesses.append(self.model.current_guess)
 
+		self.view.show_board(self.model.guesses)
 
-		pass
 
 
 	def store_player_pegs(self):
@@ -126,7 +130,7 @@ class MasterMind:
 				peg_list.append(temp_peg)
 
 				#Testing print function to be removed later - wanting to show black key pegs 
-				print("Adding black pegs because of", goal[i].color)
+				#print("Adding black pegs because of", goal[i].color)
 				
 				#insert an empty string to act as a place holder for the matched values in the current_guess list and the goal_list
 				#removes the matched colors/position in guess 
@@ -155,7 +159,7 @@ class MasterMind:
 						 	peg_list.append(temp_peg2)
 
 						 	#used for testing only
-						 	print("Adding white pegs because of", goal[k].color)
+						 	#print("Adding white pegs because of", goal[k].color)
 
 						 	#replaces matches with emprty string to avoid duplicates 
 						 	goal.pop(k)
@@ -166,20 +170,22 @@ class MasterMind:
 		#we need to store peg list with the history of guesses
 		self.model.current_guess.key_pegs = peg_list
 
-		print(len(peg_list)) #Need to get rid of this eventually 
+		#print(len(peg_list)) #Need to get rid of this eventually 
 
 
 
 
 
-# def test_eval_peg_color():
-# 	test_instance = MasterMind() #new object of the game
-# 	test_instance.generate_goal() #generated a goal 
-# 	for peg in test_instance.model.goal:
-# 		print(peg)
-# 	test_instance.store_player_pegs() #prompts for the guess 
+def test_eval_peg_color():
+	test_instance = MasterMind() #new object of the game
+	test_instance.generate_goal() #generated a goal 
+	for peg in test_instance.model.goal:
+		print(peg)
+	test_instance.store_player_pegs() #prompts for the guess 
 
-# 	test_instance.eval_peg_color()
+	test_instance.eval_peg_color()
+
+
 
 
 
@@ -194,17 +200,13 @@ def test():
 
 
 def main():
-	MasterModel.goal = [RGBW]
-	MasterModel.current_guess = [RGBW]
 
 	test_object = MasterMind()
-	#test_object.store_player_pegs()
-	test_object.check_win()
-
+	test_object.play_game()
 
 if __name__ == '__main__':
 	main()
-	test()
-	test_eval_peg_color()
+	#test()
+	#test_eval_peg_color()
 
 

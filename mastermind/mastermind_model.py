@@ -23,8 +23,8 @@ class Guess:
 
 	def __init__(self):
 		#build out the pieces that exist in the model
-		self.player_pegs = [] #list strings that stores player's current guess (4 colored pegs each guess)
-		self.key_pegs = [] #list that stores the key pegs (black and white pegs that match player's guesses)
+		self.player_pegs = [] #list of PlayerPegs that stores player's current guess (4 colored pegs each guess)
+		self.key_pegs = [] #list that stores the KeyPegs (black and white pegs that match player's guesses)
 
 
 
