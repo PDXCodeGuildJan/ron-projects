@@ -172,16 +172,16 @@ class MasterMind:
 
 
 
-def test_eval_peg_color():
-	test_instance = MasterMind() #new object of the game
-	test_instance.generate_goal() #generated a goal 
-	for peg in test_instance.model.goal:
-		print(peg)
-	test_instance.store_player_pegs() #prompts for the guess 
+# def test_eval_peg_color():
+# 	test_instance = MasterMind() #new object of the game
+# 	test_instance.generate_goal() #generated a goal 
+# 	for peg in test_instance.model.goal:
+# 		print(peg)
+# 	test_instance.store_player_pegs() #prompts for the guess 
 
-	test_instance.eval_peg_color()
+# 	test_instance.eval_peg_color()
 
-test_eval_peg_color()
+# test_eval_peg_color()
 
 
 
@@ -203,5 +203,6 @@ test_eval_peg_color()
 # 	#test_object.store_player_pegs()
 # 	test_object.check_win()
 
+if __name__ == '__main__':
 
-# main()
+	main()

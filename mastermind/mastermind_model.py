@@ -1,7 +1,7 @@
 """Implement an MVC Mastermind game for one player.
 This file is the model."""
 
-__author__ = "Ron Shafii"
+__author__ = "Ron Shafii and Sarah Fellows"
 
 
 class MasterModel:

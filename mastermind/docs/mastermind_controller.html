@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><link rel="stylesheet" type="text/css" href="style.css" />
+<title>Python: module mastermind_controller</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>mastermind_controller</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/ronshafii/Documents/pdxcodeguild/ron-projects/mastermind/mastermind_controller.py">/Users/ronshafii/Documents/pdxcodeguild/ron-projects/mastermind/mastermind_controller.py</a></font></td></tr></table>
+    <p><tt>Implement&nbsp;an&nbsp;MVC&nbsp;Mastermind&nbsp;game&nbsp;for&nbsp;one&nbsp;player.&nbsp;This&nbsp;file&nbsp;is&nbsp;the&nbsp;controller.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="random.html">random</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mastermind_controller.html#MasterMind">MasterMind</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MasterMind">class <strong>MasterMind</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MasterMind-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="MasterMind-check_win"><strong>check_win</strong></a>(self)</dt><dd><tt>checks&nbsp;to&nbsp;see&nbsp;if&nbsp;the&nbsp;player's&nbsp;guess&nbsp;(self.<strong>model</strong>.current_guess)&nbsp;exactly&nbsp;matches&nbsp;the&nbsp;<br>
+4&nbsp;computer&nbsp;generated&nbsp;pegs&nbsp;(self.<strong>model</strong>.goal).</tt></dd></dl>
+
+<dl><dt><a name="MasterMind-eval_player_guess"><strong>eval_player_guess</strong></a>(self)</dt><dd><tt>Evaluates&nbsp;the&nbsp;players&nbsp;peg&nbsp;guesses&nbsp;against&nbsp;the&nbsp;goal&nbsp;and&nbsp;returns&nbsp;key&nbsp;pegs</tt></dd></dl>
+
+<dl><dt><a name="MasterMind-generate_goal"><strong>generate_goal</strong></a>(self)</dt><dd><tt>create&nbsp;4&nbsp;randomly&nbsp;generated&nbsp;colored&nbsp;pegs&nbsp;to&nbsp;establish&nbsp;the&nbsp;goal&nbsp;of&nbsp;the&nbsp;game.</tt></dd></dl>
+
+<dl><dt><a name="MasterMind-play_game"><strong>play_game</strong></a>(self)</dt><dd><tt>plays&nbsp;the&nbsp;mastermind&nbsp;game</tt></dd></dl>
+
+<dl><dt><a name="MasterMind-store_player_pegs"><strong>store_player_pegs</strong></a>(self)</dt><dd><tt>Call&nbsp;prompt_user&nbsp;to&nbsp;obtain&nbsp;player&nbsp;pegs.&nbsp;Turn&nbsp;prompt_user()&nbsp;string&nbsp;into&nbsp;a&nbsp;Guess&nbsp;<a href="builtins.html#object">object</a>&nbsp;and&nbsp;store&nbsp;it&nbsp;in&nbsp;the&nbsp;guesses[Guess]&nbsp;list</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Ron&nbsp;Shafii&nbsp;and&nbsp;Sarah&nbsp;Fellows</td></tr></table>
+</body></html>
