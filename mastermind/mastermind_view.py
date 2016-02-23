@@ -6,6 +6,8 @@ This file is the view."""
 __author__ = "Ron Shafii and Sarah Fellows"
 
 import re
+from mastermind_controller import *
+from mastermind_view import *
 
 class MasterView:
 
@@ -43,17 +45,12 @@ class MasterView:
 
 			print("I do not understand your color selection. Remember your color choices are: (Y)ellow, (B)lue, (G)reen, (W)hite, blac(K), and (R)ed")
 
+		#elif do something else if they input more than 4 choices 	
+
 		else:
 			return processed.group(0)
 
 		#return the selected user colors to the controller 
-
-
-	# def show_player_peg(self, peg_colors):
-	# 	"""displays the list of pegs chosen by the player during the current Guess."""
-	# 	#display the colors and position they chose
-	# 	print("Here is your current guess {} \n".format(processed.group(0))) #double check if this should be prompt_user() or processed.group(0)
-		
 
 
 	def win(self):
@@ -70,6 +67,28 @@ class MasterView:
 		print ("Sorry, you didn't guess the correct peg colors or positions in 10 guesses. You loose!")
 
 
+
+	def show_board(self, guesses):
+		"""display the entire history of the player's pegs and key pegs from the stored guesses"""
+
+		
+		#displays the colors and position of the player's current and previous guesses 
+		#as well as the key pegs based on the player's guess
+		for guess in guesses:
+
+			print("Here is all your guesses.")
+
+			for item in guess.player_pegs:
+				print(item)
+
+			for item in guess.key_pegs:
+				print(item)
+			#{} and key pegs {}\n".format(guess.player_pegs, guess.key_pegs))
+
+
+
+
+
 	# def show_key_peg(self):
 	# 	"""Displays a series of black or white key pegs stored in the class Guess."""
 	# 	#displays the results from eval_peg_position. If nothing to display then 
@@ -77,15 +96,9 @@ class MasterView:
 	# 	print("Here are the key pegs determined from your guess {},{},{},{}".format(keypeg1, keypeg2, keypeg3, keypeg4)) #To be determined, incomplete
 
 
-	def show_board(self, guesses):
-		"""display the entire history of the player's pegs and key pegs from the stored guesses"""
-
-		#displays the colors and position of the player's current and previous guesses 
-		#as well as the key pegs based on the player's guess
-		for guess in guesses:
-			print("Here is all your guesses {} and key pegs {}\n".format(guess.player_pegs, guess.key_pegs))
-
-
-
-
+	# def show_player_peg(self, peg_colors):
+	# 	"""displays the list of pegs chosen by the player during the current Guess."""
+	# 	#display the colors and position they chose
+	# 	print("Here is your current guess {} \n".format(processed.group(0))) #double check if this should be prompt_user() or processed.group(0)
+		
 

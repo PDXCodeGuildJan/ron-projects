@@ -36,39 +36,41 @@ class MasterMind:
 	def play_game(self):
 		"""plays the mastermind game"""
 
+		self.model.guess_num = 10
+
+
 		#Show the game rules and objectives
 		self.view.show_rules()
 
 		# Generate the Goal
 		self.generate_goal()
 
-		#prompt the user to enter 4 colors
-		self.store_player_pegs()
+		#Starts the counter for guesses left 
+		while self.model.guess_num <= 10: 
 
-		#check if the user won 
+			#prompt the user to enter 4 colors
+			self.store_player_pegs()
 
-			#if the user didn't win evaluate the player's peg colors against the computer_peg colors
-			#if no colors match display to the user Nothing to display
+			#check if the user won 
+			self.check_win()
 
-		self.eval_player_guess()
+			#Evaluates the player's guesses and produces key pegs from evaluation
+			self.eval_player_guess()
 
-				#if player colors match then evaluate if any of the player's pegs position match the computer's peg positions
-				#return the appropriate position and color matches to the player
+			#creates a history of guesses by adding the current guess to the histort list 
+			self.model.guesses.append(self.model.current_guess)
 
-			#decrement the number of guesses left
+			self.view.show_board(self.model.guesses)
+
 			#display to the user the number of guesses left before they lose the game
 			#if the number of guesses == 0 then display they lost the game.
 
 			#loop back to prompt the user to enter 4 colors 
-		self.model.guesses.append(self.model.current_guess)
-
-		self.view.show_board(self.model.guesses)
-
 
 
 	def store_player_pegs(self):
 		"""Call prompt_user to obtain player pegs. Turn prompt_user() string into a Guess object and store it in the guesses[Guess] list"""
-		#
+		# 
 		prompt_user_results = self.view.prompt_user()
 
 		#create a temp list
@@ -112,6 +114,9 @@ class MasterMind:
 
 		"""Evaluates the players peg guesses against the goal and returns key pegs """
 
+		#if the user didn't win evaluate the player's peg colors against the computer_peg colors
+		#if player colors match then evaluate if any of the player's pegs position match the computer's peg positions
+		#return the appropriate position and color matches to the player
 		 
 		#Results are stored by class Guess in the model.
 		
@@ -175,7 +180,6 @@ class MasterMind:
 
 
 
-
 def test_eval_peg_color():
 	test_instance = MasterMind() #new object of the game
 	test_instance.generate_goal() #generated a goal 
@@ -186,17 +190,12 @@ def test_eval_peg_color():
 	test_instance.eval_peg_color()
 
 
-
-
-
 def test():
 	#testing the random color generator
 	test_object = MasterMind()
 	temp_list = test_object.generate_goal()
 	for peg in temp_list:
 		print(peg.color)
-
-
 
 
 def main():
