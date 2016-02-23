@@ -181,28 +181,30 @@ class MasterMind:
 
 # 	test_instance.eval_peg_color()
 
-# test_eval_peg_color()
+
+
+def test():
+	#testing the random color generator
+	test_object = MasterMind()
+	temp_list = test_object.generate_goal()
+	for peg in temp_list:
+		print(peg.color)
 
 
 
-# def test():
-# 	#testing the random color generator
-# 	test_object = MasterMind()
-# 	temp_list = test_object.generate_goal()
-# 	for peg in temp_list:
-# 		print(peg.color)
 
+def main():
+	MasterModel.goal = [RGBW]
+	MasterModel.current_guess = [RGBW]
 
-# test()
+	test_object = MasterMind()
+	#test_object.store_player_pegs()
+	test_object.check_win()
 
-# def main():
-# 	MasterModel.goal = [RGBW]
-# 	MasterModel.current_guess = [RGBW]
-
-# 	test_object = MasterMind()
-# 	#test_object.store_player_pegs()
-# 	test_object.check_win()
 
 if __name__ == '__main__':
-
 	main()
+	test()
+	test_eval_peg_color()
+
+
