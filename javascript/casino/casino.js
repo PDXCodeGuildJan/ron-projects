@@ -22,25 +22,26 @@ document.getElementById("loop-btn").onclick = rollDie;
 
 
 
-
-// //number of times we're going to loop
-// var number = 5;
-// 	//print out the inputField
-// 	//console.log(inputField);
-
-
-// 	function loopClick(){
-// 	number = inputField.value;
-// 	//set it to an empty string
-// 	counter.innerHTML = "";
+/*
+//number of times we're going to loop
+var number = 5;
+	//print out the inputField
+	//console.log(inputField);
 
 
-// 	for (var i = 0; i < number; i++) {
-// 		//print to the console log
-// 		counter.innerHTML += i + "<br/>";
-// 	};		
-// };
-//// add click listener
-// document.getElementById("loop-btn").onclick = onClick;
+	function loopClick(){
+	number = inputField.value;
+	//set it to an empty string
+	counter.innerHTML = "";
 
-//window['dice'+i].src = "dice/" + randomDice + ".jpg";
+
+	for (var i = 0; i < number; i++) {
+		//print to the console log
+		counter.innerHTML += i + "<br/>";
+	};		
+};
+// add click listener
+document.getElementById("loop-btn").onclick = onClick;
+
+window['dice'+i].src = "dice/" + randomDice + ".jpg";
+*/
