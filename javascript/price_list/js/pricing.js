@@ -53,23 +53,25 @@ function removeStock(){
 	//use querySelectorAll()
 
 	//create an empty list
-	var checkboxes = [];
+	//var checkboxes = [];
 
 
 	//find all the selected items in the HTML list
 	//grab all the items with checkboxes and put them into a list
 
-	var input = document.querySelectorAll('.checkbox');
+	var input = document.querySelectorAll('input[type="checkbox"]:not([id="in-stock"])');
+	console.log(input)
+	//var input = document.querySelectorAll('.checkbox');
 
-	for (var i = 0; i < input.length; i++){
+/*	for (var i = 0; i < input.length; i++){
 
 		if(input[i].checked){
 			checkboxes.push(input[i]);
 		
 		}
-	}
+	}*/
 
-console.log(checkboxes)
+//console.log(input)
 
 
 }
