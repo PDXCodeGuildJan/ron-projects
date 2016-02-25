@@ -40,8 +40,8 @@ function addStock(){
 
 			console.log("Last item:", status);
 
-			status.textContent = "No";
-			status.className = "False";
+			status.textContent = "Yes";
+			status.className = "True";
 		}
 	}
 	//console.log(checkboxes);
