@@ -41,7 +41,7 @@ function addStock(){
 			console.log("Last item:", status);
 
 			status.textContent = "Yes";
-			status.className = "True";
+			status.className = "true";
 		}
 	}
 	//console.log(checkboxes);
@@ -85,7 +85,7 @@ function removeStock(){
 		console.log("Last item:", status);
 
 		status.textContent = "No";
-		status.className = "False";
+		status.className = "false";
 
 		//alternative options
 		//var status = selected[i].parentNode.parentNode.lastChild;
