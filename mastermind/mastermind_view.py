@@ -39,6 +39,10 @@ class MasterView:
 		#getting the player's input
 		entree = input("Please select the four colors in the sequence of your choice. Remember, your color choices are (Y)ellow, (B)lue, (G)reen, (W)hite, blac(K), and (R)ed.")
 
+		#if the player doesn't enter 4 characters
+		while len(entree) != 4:
+			entree = input("I do not understand your color selection. Please only enter 4 characters.")
+
 		processed = re.fullmatch('^[YBGWKR]{4}$', entree.upper())
 
 		if processed == None:

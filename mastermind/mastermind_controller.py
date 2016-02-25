@@ -46,7 +46,7 @@ class MasterMind:
 		self.generate_goal()
 
 		#Starts the counter for guesses left 
-		while self.model.guess_num <= 10: 
+		while self.model.guess_num > 0: 
 
 			#prompt the user to enter 4 colors
 			self.store_player_pegs()
@@ -57,15 +57,20 @@ class MasterMind:
 			#Evaluates the player's guesses and produces key pegs from evaluation
 			self.eval_player_guess()
 
-			#creates a history of guesses by adding the current guess to the histort list 
+			#creates a history of guesses by adding the current guess to the history list 
 			self.model.guesses.append(self.model.current_guess)
 
 			self.view.show_board(self.model.guesses)
 
 			#display to the user the number of guesses left before they lose the game
 			#if the number of guesses == 0 then display they lost the game.
+			self.model.guess_num -= 1
+			print("You have {} guesses left!".format(self.model.guess_num))
 
-			#loop back to prompt the user to enter 4 colors 
+			#loop back to prompt the user to enter 4 colors
+		print("Sorry You lose!, now exiting the program.") #need to exit gracefully or ask the user to start-over
+		exit()
+
 
 
 	def store_player_pegs(self):
