@@ -34,13 +34,20 @@ function addStock(){
 
 		if(input[i].checked){
 			checkboxes.push(input[i]);
-		
+
+
+			var status = input[i].parentNode.parentNode.lastChild;
+
+			console.log("Last item:", status);
+
+			status.textContent = "No";
+			status.className = "False";
 		}
 	}
 	//console.log(checkboxes);
 
 	//change their in-stock value
-	
+
 	//checkboxes[i].onchange = addStock;
 
 
@@ -73,6 +80,17 @@ function removeStock(){
 
 //console.log(input)
 
+	for (var i=0; i < input.length; i++){
+		var status = input[i].parentNode.nextSibling.nextSibling.nextSibling;
+		console.log("Last item:", status);
+
+		status.textContent = "No";
+		status.className = "False";
+
+		//alternative options
+		//var status = selected[i].parentNode.parentNode.lastChild;
+		//var status = selected[i].parentNode.parentNode.children[3];
+	}
 
 }
 
@@ -102,7 +120,7 @@ function removeStock(){
  	} else{
  		newRow += "No";
  	}
- 	newRow += "</td> </tr>";
+ 	newRow += "</td></tr>";
 
  	
 
