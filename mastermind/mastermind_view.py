@@ -14,6 +14,8 @@ class MasterView:
 
 	def show_rules(self):
 		"""Displays the rules of Mastermind to the player. """
+		#Edit these rules to go more indepth  
+
 		print("Welcome to Mastermind!")
 
 		print("Object of the Game\n")
@@ -67,14 +69,17 @@ class MasterView:
 
 	def lose(self):
 		"""Displays to the player "Sorry, You Lose." """
+		#This function has not been incorporated into the game yet. It is currently hard coded in the play_game function in the controller.
+
 		#if guess_num reaches 10 guesses display game over
-		print ("Sorry, you didn't guess the correct peg colors or positions in 10 guesses. You loose!")
+		#print ("Sorry, you didn't guess the correct peg colors or positions in 10 guesses. You loose!")
 
 
 
 	def show_board(self, guesses):
 		"""display the entire history of the player's pegs and key pegs from the stored guesses"""
-
+		#for future task we need to display the choices horizonally as well as return they key pegs in the same line. 
+		#Add ascii art 
 		
 		#displays the colors and position of the player's current and previous guesses 
 		#as well as the key pegs based on the player's guess
@@ -88,21 +93,4 @@ class MasterView:
 			for item in guess.key_pegs:
 				print(item)
 			#{} and key pegs {}\n".format(guess.player_pegs, guess.key_pegs))
-
-
-
-
-
-	# def show_key_peg(self):
-	# 	"""Displays a series of black or white key pegs stored in the class Guess."""
-	# 	#displays the results from eval_peg_position. If nothing to display then 
-	# 	#then print Nothing to Display to the player.
-	# 	print("Here are the key pegs determined from your guess {},{},{},{}".format(keypeg1, keypeg2, keypeg3, keypeg4)) #To be determined, incomplete
-
-
-	# def show_player_peg(self, peg_colors):
-	# 	"""displays the list of pegs chosen by the player during the current Guess."""
-	# 	#display the colors and position they chose
-	# 	print("Here is your current guess {} \n".format(processed.group(0))) #double check if this should be prompt_user() or processed.group(0)
-		
 
