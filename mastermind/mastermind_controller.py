@@ -36,6 +36,8 @@ class MasterMind:
 	def play_game(self):
 		"""plays the mastermind game"""
 
+		#Need to add a exit option, play again/restart option
+
 		self.model.guess_num = 10
 
 
@@ -68,6 +70,7 @@ class MasterMind:
 			print("You have {} guesses left!".format(self.model.guess_num))
 
 			#loop back to prompt the user to enter 4 colors
+			
 		print("Sorry You lose!, now exiting the program.") #need to exit gracefully or ask the user to start-over
 		exit()
 
