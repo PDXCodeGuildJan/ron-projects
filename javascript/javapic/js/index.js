@@ -2,7 +2,6 @@
 
 
 //var mySlides = ['images/pdxcg_01.jpg','images/pdxcg_02.jpg','images/pdxcg_03.jpg','images/pdxcg_04.jpg','images/pdxcg_05.jpg','images/pdxcg_06.jpg']
-slide = 0
 
 
 //auto rotate the images sequencially
