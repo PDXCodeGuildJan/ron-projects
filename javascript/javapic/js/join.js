@@ -1,22 +1,74 @@
-//disable built in browser form validation
+//disable built in browser form validation. shotgun approach if all else fails
+/*
 for(var f=document.forms,i=f.length;i--;)
 	f[i].setAttribute("novalidate",i)
-
-/*
-returns true if matched, validates for a-z and A-Z and white space
-/^[A-Za-z ]+$/.test(x)
-
 */
 
-//vaidate an empty form field
+var submitBtn = document.getElementById("submit");
+
+submitBtn.onclick = submit;
+
+function submit(e) {
+    //kill built-in browser validation
+    var form = document.getElementById("signup");
+    form.noValidate=true;
+
+
+    var name = document.forms["signup"]["name"].value;
+    var username = document.forms["signup"]["username"].value;
+    var email = document.forms["signup"]["email"].value;
+    //var formFailure 
+    console.log(name, username, email);
+
+
+    if (name === "") {
+        alert("Name must be filled out");
+    }
+    //regex not working yet
+    var regexName = "/^(?:[-A-Z]+\.? )+[-A-Z]+$/i";
+        if (regexName.test(name)){
+            alert("Incomplete name entered. Please type a name a-z in lower or uppercase");
+        }
+
+
+    if (username ===""){
+        alert("Username must be filled out");
+    }
+
+
+    if (email ===""){
+        alert("Username must be filled out");
+    }
+
+
+}
+
+
+
+/*
+function validateName(){
+
+    document.getElementById("signup").noValidate = true;
+    //returns true if matched, validates for a-z, A-Z, white space and periods
+    /^(?:[-A-Z]+\.? )+[-A-Z]+$/i.test(x)
+
+}
+*/
+
+
+
+
+/*
+
+//validate an empty form field
 
 function IsEmpty(objectfield,stringfield)
 {
     objectvalue = objectfield.value.length;
     if(objectvalue=="")
     {
-        alert("Oops.. Please fill out the value of "+stringfield);
-        objectfield.style.background = 'Yellow';
+        alert("Oops.. Please fill out the value of " + stringfield);
+        objectfield.style.background = 'Red';
         return false;
     }
     else
@@ -31,10 +83,11 @@ function validate_email(field,alerttxt)
 {
     with (field)
     {
-        apos=value.indexOf("@");
-        dotpos=value.lastIndexOf(".");
-        if (apos<1||dotpos-apos<2){
-            alert(alerttxt);return false;
+        apos = value.indexOf("@");
+        dotpos = value.lastIndexOf(".");
+        if (apos < 1 || dotpos - apos < 2){
+            alert(alerttxt);
+            return false;
         }
         else {
             return true;
@@ -42,42 +95,6 @@ function validate_email(field,alerttxt)
     }
 }
 
-
-//validate a password
-
-function validatePassword(fld) {
-    var error = "";
-    var illegalChars = /[\W_]/; // allow only letters and numbers
- 
-    if (fld.value == "") {
-        fld.style.background = 'Yellow';
-        error = "You didn't enter a password.\n";
-        alert(error);
-        return false;
- 
-    } else if ((fld.value.length < 7) || (fld.value.length > 15)) {
-        error = "The password is the wrong length. \n";
-        fld.style.background = 'Yellow';
-        alert(error);
-        return false;
- 
-    } else if (illegalChars.test(fld.value)) {
-        error = "The password contains illegal characters.\n";
-        fld.style.background = 'Yellow';
-        alert(error);
-        return false;
- 
-    } else if ( (fld.value.search(/[a-zA-Z]+/)==-1) || (fld.value.search(/[0-9]+/)==-1) ) {
-        error = "The password must contain at least one numeral.\n";
-        fld.style.background = 'Yellow';
-        alert(error);
-        return false;
- 
-    } else {
-        fld.style.background = 'White';
-    }
-   return true;
-}
-
+*/
 
 
