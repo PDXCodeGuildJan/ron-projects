@@ -44,7 +44,7 @@ function rotateSlide(i){
     //console.log(i);
 
     //recursive call. setInterval wasn't working correctly
-    setTimeout(rotateSlide, i000, i);
+    setTimeout(rotateSlide, 5000, i);
 
 
 
