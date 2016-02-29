@@ -1,4 +1,4 @@
-//disable built in browser form validation. shotgun approach if all else fails
+//disable all built-in browser validation. shotgun approach if all else fails
 /*
 for(var f=document.forms,i=f.length;i--;)
 	f[i].setAttribute("novalidate",i)
@@ -8,7 +8,8 @@ var submitBtn = document.getElementById("submit");
 
 submitBtn.onclick = submit;
 
-function submit(e) {
+
+function submit() {
     //kill built-in browser validation
     var form = document.getElementById("signup");
     form.noValidate=true;
@@ -20,81 +21,65 @@ function submit(e) {
     //var formFailure 
     console.log(name, username, email);
 
-
+	//validate name text field
     if (name === "") {
         alert("Name must be filled out");
+		//document.forms["signup"]["name"].focus();
+		return false;
     }
-    //regex not working yet
-    var regexName = "/^(?:[-A-Z]+\.? )+[-A-Z]+$/i";
-        if (regexName.test(name)){
-            alert("Incomplete name entered. Please type a name a-z in lower or uppercase");
+    //regular expression to match only alpha characters and spaces
+    var reName = /^[a-zA-Z]+$/;
+	
+	if (reName.test(name)){
+		//successful validation
+		return true;
+	}	else{
+
+		alert("Incomplete name entered. Please type a name a-z in lower or uppercase");
+		//document.forms["signup"]["name"].focus();
+		return false;
         }
 
 
-    if (username ===""){
-        alert("Username must be filled out");
+
+	//validate username text field
+    if (username === ""){
+		alert("Error: Username must contain only letters, numbers and underscores!");
+		//document.forms["signup"]["username"].focus();
+		return false;
     }
 
-
-    if (email ===""){
-        alert("Username must be filled out");
+    //regular expression to match only alphanumeric characters and underscores
+    var reUsername = /^\w+$/;
+	
+	if (reUsername.test(username)){
+		//successful validation
+		return true;
+	}	else{
+		
+		alert("Error: Username must contain only letters, numbers and underscores!");
+		//document.forms["signup"]["username"].focus();
+		return false;
+		}
+	//validate email text field
+    if (email === ""){
+        alert("Email must be filled out");
+		//document.forms["signup"]["email"].focus();
+		return false;
     }
-
-
+	//regular expression to validate an email
+	var reEmail = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+	
+	if (reEmail.test(email)){
+		//successful validation
+		return true;
+	}	else{
+		
+		alert("Invalid email address entered.");
+		//document.forms["signup"]["email"].focus();
+		return false;
+		}
+		
 }
 
-
-
-/*
-function validateName(){
-
-    document.getElementById("signup").noValidate = true;
-    //returns true if matched, validates for a-z, A-Z, white space and periods
-    /^(?:[-A-Z]+\.? )+[-A-Z]+$/i.test(x)
-
-}
-*/
-
-
-
-
-/*
-
-//validate an empty form field
-
-function IsEmpty(objectfield,stringfield)
-{
-    objectvalue = objectfield.value.length;
-    if(objectvalue=="")
-    {
-        alert("Oops.. Please fill out the value of " + stringfield);
-        objectfield.style.background = 'Red';
-        return false;
-    }
-    else
-        return true;
-}
-
-
-
-//validate an email address
-
-function validate_email(field,alerttxt)
-{
-    with (field)
-    {
-        apos = value.indexOf("@");
-        dotpos = value.lastIndexOf(".");
-        if (apos < 1 || dotpos - apos < 2){
-            alert(alerttxt);
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-}
-
-*/
-
-
+//document.forms["signup"]["name"].value
