@@ -64,18 +64,19 @@ function showLightbox(event) {
 
 
 
-function hideLightBox(){
-
-    document.getElementById("image_show").className = "display_none"
+function hideLightBox(event){
+	
+	if (event.target.nodeName != "IMG") {
+	
+	document.getElementById("image_show").className = "display_none"
+	}
 }
-
-
 
 
 
 document.getElementById('gallery').addEventListener('click', showLightbox);
 
-//document.getElementById('image_show').removeEventListener('click', lightbox, false);
+document.getElementById('image_show').addEventListener('click', hideLightBox);
 
 
 
@@ -83,17 +84,4 @@ document.getElementById('gallery').addEventListener('click', showLightbox);
 
 window.onload = gallery;
 
-
-
-
-
-
-
-
-
-
-
-
-
-//document.getElementById("gallery").style = " + mySlides + ;  
 
