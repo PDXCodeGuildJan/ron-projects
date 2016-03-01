@@ -2,7 +2,6 @@
 
 
 
-
 function gallery(){
 
     for (i = 1; i <= 60; i++){
@@ -25,7 +24,7 @@ function gallery(){
                 continue;
             }
         }
-        console.log(mySlides)
+
         //create an <li> in javascript
         var li = document.createElement("LI");
 
@@ -41,23 +40,60 @@ function gallery(){
 
         
     }
+
 }
+
+
+
+
+
+
+function showLightbox(event) {
+
+    if (event.target.nodeName === "IMG") {
+
+        var element = document.getElementById("image_show")
+        element.firstChild.src = event.target.src
+        element.className = "display_img"
+
+    }
+    console.log(element.src)
+    console.log(event.target.src)
+    
+}
+
+
+
+function hideLightBox(){
+
+    document.getElementById("image_show").className = "display_none"
+}
+
+
+
+
+
+document.getElementById('gallery').addEventListener('click', showLightbox);
+
+//document.getElementById('image_show').removeEventListener('click', lightbox, false);
+
+
+
+
 
 window.onload = gallery;
 
 
 
-    //document.getElementById("gallery").style = " + mySlides + ;  
 
-    //document.getElementById("gallery").getElementsByTagName("li").innerHTML = + mySlides(0) +;
-    //document.getElementById("gallery").appendChild(mySlides(0)) //= + mySlides(0) +;
 
-    /*
-    when the loop gets to the end of the images return to image 1 to keep looping
-    if (i > 60) {
 
-        i = 1;
-        
-    }
-    */
+
+
+
+
+
+
+
+//document.getElementById("gallery").style = " + mySlides + ;  
 
