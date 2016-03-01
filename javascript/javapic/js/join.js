@@ -28,7 +28,8 @@ function submit() {
 		return false;
     }
     //regular expression to match only alpha characters and spaces
-    var reName = /^[a-zA-Z]+$/;
+    var reName = /^[a-zA-Z ]+$/;
+
 	
 	if (reName.test(name)){
 		//successful validation
