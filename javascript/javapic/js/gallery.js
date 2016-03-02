@@ -6,7 +6,7 @@
 
 function gallery(){
 
-
+    showName();
 
 
     //create the images to display in the gallery
@@ -54,33 +54,22 @@ function gallery(){
 function showName(){
 
     
-    //append the user's first name to the tagline
-    //var url = document.URL;
-    //console.log(url);
-    //grab everything in the URL after the ?
+
+    //grab everything in the browser URL after the ?
     var url = location.search.substring(1);
     console.log(url);
+
+    //split after the first name to separate the space and last name from the first name
+    var firstName = url.split("%20", 1);
+    console.log(firstName);
 
     //grab the tagline class and set it to a variable
     var tagline = document.getElementsByClassName("tagline");
 
-
-
-    //tagline[0].innerHTML = 
+    //append the user's first name to the tagline
+    tagline[0].innerHTML = "develop something beautiful " + firstName;
 
 }
-
-    //var newTagline = url.
-    //console.log(url);
-    
-
-    //tagline[0].appendChild(newTagline)
-
-    //console.log(url);
-    //tagline.appendChild(url)
-
-    //tagline.appendChild();
-    //console.log(tagline)
 
 
 
@@ -121,6 +110,6 @@ document.getElementById('image_show').addEventListener('click', hideLightBox);
 
 
 window.onload = gallery;
-window.onload = showName;
+//window.onload = showName;
 
 
