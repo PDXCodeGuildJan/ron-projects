@@ -1,9 +1,6 @@
-//disable all built-in browser validation. shotgun approach if all else fails
-/*
-for(var f=document.forms,i=f.length;i--;)
-	f[i].setAttribute("novalidate",i)
-*/
-//for(var f=document.forms,i=f.length;i--;)f[i].setAttribute("novalidate","");"
+//validate name, username and email address of the signup form and upon successful signup 
+//redirect the user to the gallery page with their name appended to the gallery tagline 
+
 
 var submitBtn = document.getElementById("submit");
 
@@ -31,16 +28,16 @@ function submit() {
     //regular expression to match only alpha characters and spaces
     var reName = /^[a-zA-Z ]+$/;
 
+	//console.log("value of reName is ", reName.test(name));
 	
-	if (reName.test(name)){
+	if (!(reName.test(name))){
 		//successful validation
-		return true;
-	}	else{
+		//return true;
 
 		alert("Incomplete name entered. Please type a name a-z in lower or uppercase");
 		//document.forms["signup"]["name"].focus();
 		return false;
-        }
+    }
 
 
 
@@ -52,17 +49,19 @@ function submit() {
     }
 
     //regular expression to match only alphanumeric characters and underscores
-    var reUsername = /^\w+$/;
-	
-	if (reUsername.test(username)){
+    var reUsername = /^[0-9a-zA-Z]+$/;
+
+
+	if (!(reUsername.test(username))){
 		//successful validation
-		return true;
-	}	else{
-		
+
 		alert("Error: Username must contain only letters, numbers and underscores!");
 		//document.forms["signup"]["username"].focus();
 		return false;
 		}
+
+
+
 	//validate email text field
     if (email === ""){
         alert("Email must be filled out");
@@ -74,19 +73,19 @@ function submit() {
 	
 	if (reEmail.test(email)){
 		//successful validation
-		return true;
+		alert("Login Successful");
+        setTimeout(function() {window.location = "file:///Users/ronshafii/Documents/pdxcodeguild/ron-projects/javascript/javapic/gallery.html?" + name;});
+
 	}	else{
 		
 		alert("Invalid email address entered.");
 		//document.forms["signup"]["email"].focus();
+		event.preventDefault()
 		return false;
 		}
 
 
-	if (reName.test(name) == true || reUsername.test(username) == true || reEmail.test(email) == true)
-		alert("Login Successful");
-        window.location = "javapic/gallery.html?" + name;
-    }
+
 
 }
 

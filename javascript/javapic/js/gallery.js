@@ -1,8 +1,15 @@
 //create a gallery of thumbnails from the images directory and enlarge one individual image at a time in a lightbox
+//append the user's name being passed in the browser's url to the end of the heading 
+
 
 
 
 function gallery(){
+
+
+
+
+    //create the images to display in the gallery
 
     for (i = 1; i <= 60; i++){
 
@@ -43,6 +50,36 @@ function gallery(){
 
 }
 
+
+function showName(){
+
+    
+    //append the user's first name to the tagline
+    var url = document.URL;
+    console.log(url);
+    //grab everything in the URL after the ?
+    var parse = url.location.search.substring(1);
+    //console.log(parse);
+
+    //grab the tagline class and set it to a variable
+    var tagline = document.getElementsByClassName("tagline");
+
+
+    //tagline[0].innerHTML = 
+
+}
+
+    //var newTagline = url.
+    //console.log(url);
+    
+
+    //tagline[0].appendChild(newTagline)
+
+    //console.log(url);
+    //tagline.appendChild(url)
+
+    //tagline.appendChild();
+    //console.log(tagline)
 
 
 
