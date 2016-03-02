@@ -276,7 +276,7 @@ function loadData(){
 		products = [];
 	}
 
-	//updatethe rendered display
+	//updated the rendered display
 	displayInventory();
 
 }
