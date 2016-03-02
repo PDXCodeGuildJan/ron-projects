@@ -17,7 +17,7 @@ var removeStockButton = document.getElementById("remove-stock");
 removeStockButton.onclick = removeStock;
 
 
-
+window.onload = loadData;
 
 //initialize global variable that stores the inventory
 var products =[];
@@ -54,7 +54,7 @@ function addStock(){
 
 		
 	}
-	
+	saveData();
 }
 
 
@@ -92,7 +92,7 @@ function removeStock(){
 		var prodId = input[i].parentNode.parentNode.id;
 		products[prodId].inStock = false;
 	}
-
+	saveData();
 }
 
 
@@ -115,10 +115,11 @@ function removeStock(){
 
  	//create a new instance of the Product object with the new item's info
  	var newProd = new Product(materialName, priceName, inStock);
- 	console.log(newProd);
+ 	//console.log(newProd);
  	products.push(newProd);
 
  	displayInventory();
+ 	saveData();
  }
 
 
@@ -146,7 +147,7 @@ function delItem(){
 	//re-render the hTML list using displayInventory
 	displayInventory();
 
-
+	saveData();
 }
 
 //helper function to get all the checked boxes in the HTML's inventory
@@ -229,7 +230,7 @@ function displayInventory(){
 		inventory.appendChild(newRow);
 	};
 
-
+	saveData();
 }
 
 
@@ -247,3 +248,35 @@ function Product(name, price, inStock){
 }
 
 
+//saves the current state of the products array
+
+function saveData(){
+	//transform the products array into a JSON string
+	var productJSON = JSON.stringify(products);
+	console.log(productJSON);
+
+	//save that JSON string to local storage
+	localStorage.setItem("price_list", productJSON);
+}
+
+
+
+//loads the current state of the product data
+function loadData(){
+	//load datat from local storage
+	var productJSON = localStorage.getItem("price_list");
+	console.log("loaded data ", productJSON);
+
+	//parse it into a javscript data type and save to the global array
+	products = JSON.parse(productJSON);
+	console.log(products);
+
+	//double check products is set ot a list of null
+	if (!products){
+		products = [];
+	}
+
+	//updatethe rendered display
+	displayInventory();
+
+}

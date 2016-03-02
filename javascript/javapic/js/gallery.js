@@ -55,14 +55,15 @@ function showName(){
 
     
     //append the user's first name to the tagline
-    var url = document.URL;
-    console.log(url);
+    //var url = document.URL;
+    //console.log(url);
     //grab everything in the URL after the ?
-    var parse = url.location.search.substring(1);
-    //console.log(parse);
+    var url = location.search.substring(1);
+    console.log(url);
 
     //grab the tagline class and set it to a variable
     var tagline = document.getElementsByClassName("tagline");
+
 
 
     //tagline[0].innerHTML = 
@@ -120,5 +121,6 @@ document.getElementById('image_show').addEventListener('click', hideLightBox);
 
 
 window.onload = gallery;
+window.onload = showName;
 
 
