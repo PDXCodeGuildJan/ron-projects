@@ -3,6 +3,7 @@
 for(var f=document.forms,i=f.length;i--;)
 	f[i].setAttribute("novalidate",i)
 */
+//for(var f=document.forms,i=f.length;i--;)f[i].setAttribute("novalidate","");"
 
 var submitBtn = document.getElementById("submit");
 
@@ -80,7 +81,18 @@ function submit() {
 		//document.forms["signup"]["email"].focus();
 		return false;
 		}
-		
+
+
+	if (reName.test(name) == true || reUsername.test(username) == true || reEmail.test(email) == true)
+		alert("Login Successful");
+        window.location = "javapic/gallery.html?" + name;
+    }
+
 }
 
-//document.forms["signup"]["name"].value
+
+
+
+
+        
+

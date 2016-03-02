@@ -4,6 +4,10 @@ var addItemButton = document.getElementById("add-item");
 
 addItemButton.onclick = addItem;
 
+var delItemButton = document.getElementById("del-item");
+
+delItemButton.onclick = delItem;
+
 var addStockButton = document.getElementById("add-stock");
 
 addStockButton.onclick = addStock;
@@ -13,18 +17,23 @@ var removeStockButton = document.getElementById("remove-stock");
 removeStockButton.onclick = removeStock;
 
 
+
+
+//initialize global variable that stores the inventory
+var products =[];
+
+
 /*toggle the inStock status on the selected rows inside of inventory*/
 
 function addStock(){
 	//NOT ALLOWED TO USE querySelectorAll()
 
-	//create an empty list
-	var checkboxes = [];
 
 
 	//find all the selected items in the HTML list
 	//grab all the items with checkboxes and put them into a list
-	var input = document.getElementsByClassName("checkbox"); 
+	//var input = document.getElementsByClassName("checkbox"); 
+	var input = getSelectedRowBoxes();
 	//console.log(input);
 
 
@@ -32,28 +41,28 @@ function addStock(){
 
 	for (var i = 0; i < input.length; i++){
 
-		if(input[i].checked){
-			checkboxes.push(input[i]);
+		var status = input[i].parentNode.parentNode.lastChild;
 
+		console.log("Last item:", status);
 
-			var status = input[i].parentNode.parentNode.lastChild;
+		status.textContent = "Yes";
+		status.className = "true";
 
-			console.log("Last item:", status);
+		//update the Product in the products array that corresponds to the checked checkbox we're updating
+		var prodId = input[i].parentNode.parentNode.id;
+		products[prodId].inStock = true;
 
-			status.textContent = "Yes";
-			status.className = "true";
-		}
+		
 	}
-	//console.log(checkboxes);
-
-	//change their in-stock value
-
-	//checkboxes[i].onchange = addStock;
-
-
-	//update the display? depends on previous step. not adding quantity
-
+	
 }
+
+
+
+
+
+
+
 
 
 function removeStock(){
@@ -66,19 +75,10 @@ function removeStock(){
 	//find all the selected items in the HTML list
 	//grab all the items with checkboxes and put them into a list
 
-	var input = document.querySelectorAll('input:checked:not([id="in-stock"])');
-	console.log(input)
-	//var input = document.querySelectorAll('.checkbox');
+	var input = getSelectedRowBoxes();
 
-/*	for (var i = 0; i < input.length; i++){
+	//console.log(input)
 
-		if(input[i].checked){
-			checkboxes.push(input[i]);
-		
-		}
-	}*/
-
-//console.log(input)
 
 	for (var i=0; i < input.length; i++){
 		var status = input[i].parentNode.nextSibling.nextSibling.nextSibling;
@@ -87,9 +87,10 @@ function removeStock(){
 		status.textContent = "No";
 		status.className = "false";
 
-		//alternative options
-		//var status = selected[i].parentNode.parentNode.lastChild;
-		//var status = selected[i].parentNode.parentNode.children[3];
+
+		//update the Product in the products array that correspends to the checked checkbox we're updating
+		var prodId = input[i].parentNode.parentNode.id;
+		products[prodId].inStock = false;
 	}
 
 }
@@ -112,20 +113,137 @@ function removeStock(){
  	var inStock = document.getElementById("in-stock").checked;
  	//console.log(inStock);
 
- 	var inventory = document.getElementById("inventory");
- 	var newRow = "<tr>" + "<td>" + "<input type='checkbox' class='checkbox'>" + "</td>" + "<td>" + materialName + "</td>" + "<td>" + priceName + "</td>" + "<td class=' " + inStock + "'>"; 
- 	
- 	if (inStock){
- 		newRow += "Yes";
- 	} else{
- 		newRow += "No";
- 	}
- 	newRow += "</td></tr>";
+ 	//create a new instance of the Product object with the new item's info
+ 	var newProd = new Product(materialName, priceName, inStock);
+ 	console.log(newProd);
+ 	products.push(newProd);
 
- 	
-
- 	inventory.innerHTML += newRow; 
+ 	displayInventory();
  }
 
+
+
+
+/* Delete selected rows from the inventory */
+function delItem(){
+	//determine all the selected rows
+	var input = getSelectedRowBoxes();
+
+	//delete the Product objects that correspond to those rows from the products array
+	//loop through the list backwards
+	for (var i = input.length-1; i>=0; i--){
+		//get the id on the row that the checkbox is in
+		var prodId = input[i].parentNode.parentNode.id;
+
+		//delete the Product at that index (prodId = index)
+		delete products[prodId]
+
+		//delete products leaves an undefined item , so we need to fill the hole
+		products.splice(prodId, 1);
+
+	}
+
+	//re-render the hTML list using displayInventory
+	displayInventory();
+
+
+}
+
+//helper function to get all the checked boxes in the HTML's inventory
+//returns array of selected checkboxes
+function getSelectedRowBoxes(){
+	var input = document.querySelectorAll('input:checked:not([id="in-stock"])');
+	return input;
+
+}
+
+
+/* adds all the items in the products array to the HTML*/
+function displayInventory(){
+
+	var inventory = document.getElementById("inventory")
+	inventory.innerHTML = "";
+
+	//loop through the products array adding each Product to the inventory table in the HTML
+	for (var i=0; i < products.length; i++){
+
+		//make a new row for the product i
+		var newRow = document.createElement("TR");
+		newRow.id = i;
+
+		//better alternative
+		//newRow.id = "prod_" + i;
+
+		//make a <td> for the checkbox
+		var checkbox = document.createElement("TD");
+		//make the checkbox
+		var innerCheckbox = document.createElement("INPUT");
+		//set the input type to checkbox
+		innerCheckbox.type = "checkbox";
+
+		//don't forget we getelementByClassName in addStock and need to update it here too
+		innerCheckbox.className = "checkbox";
+
+		//add the checkbox into the <td>
+		checkbox.appendChild(innerCheckbox);
+
+		//make a <td> for the material name
+		var materialName = document.createElement("TD");
+		materialName.textContent = products[i].prodName;
+
+		//make a <td> for the price
+		var price = document.createElement("TD");
+		price.textContent = products[i].price;
+
+		//make a <td> for the stock toggle
+		var inStock = document.createElement("TD");
+		//set the <td>'s text content to either yes or no based on the product at index i's inStock property
+		inStock.textContent = (function(inStock){
+			if (inStock){
+				return "Yes";
+			}
+			return "No";
+		}(products[i].inStock));
+
+		//manually set the attribute 
+		inStock.className = products[i].inStock;
+
+		//same as above, but let javascript set it for you
+		//set the class on the <td> to the correct class
+		//inStock.setAttribute("class", products[i].inStock);
+
+
+		/*if (products[i].inStock){
+			inStock.textcontent = "Yes";
+		} else {
+			inStock.textcontent = "No";
+		}*/
+
+		//add all the <td>'s to the <tr>'
+		newRow.appendChild(checkbox);
+		newRow.appendChild(materialName);
+		newRow.appendChild(price);
+		newRow.appendChild(inStock);
+
+		//add the new row to the actual TBODY in the HTML
+		inventory.appendChild(newRow);
+	};
+
+
+}
+
+
+
+/* Constructor for the Product object */
+function Product(name, price, inStock){
+
+	this.prodName = name;
+	this.price = price;
+	this.inStock = inStock;
+
+	this.setStock = function (stock){
+	this.inStock = stock;
+	};
+}
 
 
