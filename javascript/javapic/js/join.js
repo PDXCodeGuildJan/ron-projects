@@ -43,7 +43,7 @@ function submit() {
 
 	//validate username text field
     if (username === ""){
-		alert("Error: Username must contain only letters, numbers and underscores!");
+		alert("Error: Username must contain only alphanumeric characters!");
 		//document.forms["signup"]["username"].focus();
 		return false;
     }
@@ -55,7 +55,7 @@ function submit() {
 	if (!(reUsername.test(username))){
 		//successful validation
 
-		alert("Error: Username must contain only letters, numbers and underscores!");
+		alert("Error: Username must contain only alphanumeric characters");
 		//document.forms["signup"]["username"].focus();
 		return false;
 		}
@@ -78,7 +78,7 @@ function submit() {
 
 	}	else{
 		
-		alert("Invalid email address entered.");
+		alert("Invalid email address entered. Example; yourname@yourdomain.com ");
 		//document.forms["signup"]["email"].focus();
 		event.preventDefault()
 		return false;
