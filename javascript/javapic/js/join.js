@@ -74,7 +74,7 @@ function submit() {
 	if (reEmail.test(email)){
 		//successful validation
 		alert("Login Successful");
-        setTimeout(function() {window.location = "file:///Users/ronshafii/Documents/pdxcodeguild/ron-projects/javascript/javapic/gallery.html?" + name;});
+        setTimeout(function() {window.location.href = "gallery.html?" + name;});
 
 	}	else{
 		

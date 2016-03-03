@@ -57,11 +57,11 @@ function showName(){
 
     //grab everything in the browser URL after the ?
     var url = location.search.substring(1);
-    console.log(url);
+    //console.log(url);
 
-    //split after the first name to separate the space and last name from the first name
+    //split after the first name to grab only first name
     var firstName = url.split("%20", 1);
-    console.log(firstName);
+    //console.log(firstName);
 
     //grab the tagline class and set it to a variable
     var tagline = document.getElementsByClassName("tagline");
@@ -110,6 +110,6 @@ document.getElementById('image_show').addEventListener('click', hideLightBox);
 
 
 window.onload = gallery;
-//window.onload = showName;
+
 
 
