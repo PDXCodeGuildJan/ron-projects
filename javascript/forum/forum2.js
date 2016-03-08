@@ -4,13 +4,17 @@
 function get() {	
 	$.getJSON( "http://spreadsheets.google.com/feeds/list/1NlIJLGd32t38kt6mJgc64SFpDM_ltq7nfzaRjV1wpLI/default/public/values?alt=json-in-script&callback=?",
 		function (data) {	
-			$('.results').append('<ul class="items"></ul>');
+			//$('.results').append('<ul class="items"></ul>');
+			$('.results').append('<div class="items"></div>');
+
 			$.each(data.feed.entry, function(i,entry) {	
 				var item = '<span style="display:none">' + entry.id.$t + '</span>';
 				item += '<br/>Date: ' + entry.gsx$timestamp.$t;
 				item += '<br/>title: ' + entry.gsx$title.$t;
 				item += '<br/>bodytext: ' + entry.gsx$post.$t;	
-				$('.items').append('<li>' + item + '</span></li>');	
+				//$('.items').append('<li>' + item + '</span></li>');
+				$('.items').append('<div>' + item + '</div>');
+
 			});
 	});
 };
