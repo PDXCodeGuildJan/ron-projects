@@ -1,3 +1,73 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*
+Homepage
+*/
+
+body {
+    background-color: #111;
+    font-family: Helvetica;
+    font-color: #fff;
+}
+
+header {
+    color: #fff;
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.items {
+	color: #fff;
+
+}
+
+main {
+    width: 80%;
+    max-width: 1024px;
+    margin: 50px auto;
+}
+
+
+
+
+/*
+Form signup
+*/
+
+.form {
+    width: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 75px 50px;
+    border-radius: 2px;
+}
+
+.form h2 {
+    margin: 0 0 25px;
+}
+
+label, input {
+    display: block;
+    margin: 2px 0;
+    width: 100%;
+}
+
+label {
+    margin-top: 15px;
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.form input[type="submit"] {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    border-radius: 2px;
+}
