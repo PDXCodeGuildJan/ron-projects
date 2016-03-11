@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Nova+Square);
+
+
+
+
+html, body {
+	background: #EEEEEE;
+	font-family: sans-serif;
+	margin: 50px 0;
+
+}
+
+.page-wrapper {
+    text-align: left;
+    margin: 0 auto;
+	width: 56%;
+	min-width: 460px;
+
+}
+
+
+h1, h2, h3 {
+	font-family: 'Nova Square', cursive;
+}
+
+
+h1 {
+
+	margin-bottom: 0;
+	font-weight: normal;
+	font-size: 2.5em;
+	color: #E23045;
+	background: EEE;
+
+}
+
+
+h2 {
+	font-weight: normal;
+	color: #FFF6E0;
+	background-color: #E23045;
+	border-radius: 3px;
+
+}
+
+h3 {
+	font-weight: normal;
+}
+
+
+
+.preamble {
+
+	background-color: #1B4549;
+	color: #FFF6E0;
+	box-shadow: 30px 40px #7AB3B0;
+	padding: 20px 20px;
+	border-radius: 3px;
+	margin-bottom: 70px;
+
+	}
+
+
+
+main {
+	display: inline-block;
+	width: 460px;
+
+}
+
+article {
+	background-color: #FFF6E0;
+	color: #000;
+	box-shadow: 30px 40px #7AB3B0;
+	margin-bottom: 60px;
+	border: 1px solid black;
+	padding: 0 20px;
+	border-radius: 3px;
+
+}
+
+
+.resources {
+	display: none;
+}
+
+
+
+footer {
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+
+footer>a {
+	color:#FFF6E0;
+	background-color: #908673;
+	display: inline;
+	padding: 5px;
+	text-decoration: none;
+	border-radius: 2px;
+	box-shadow: 10px 15px 0 #D8CFBC;
+
+}
+
+
+
+li {
+	width: 175px;
+	list-style: none;
+	background-color: #E23045;
+	box-shadow: 10px 10px #F59581;
+	margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+
+
+li>a {
+	text-decoration: none;
+	color: #FFF6E0;
+}
+
+
+.sidebar {
+	text-align: center;
+	vertical-align: top;
+	display: inline-block;
+    margin-top: -15px;
+    margin-left: 70px;
+
+}
+
+
+p>a {
+	color: #E12E43;
+	text-decoration: none;
+}
+
+
+
+
+
+
+

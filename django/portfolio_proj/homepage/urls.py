@@ -1,4 +1,4 @@
-"""portfolio_proj URL Configuration
+"""homepage URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -14,30 +14,11 @@ Including another URLconf
     2. Import the include() function: from django.conf.urls import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
-#landing page
-from homepage import urls as homepage_urls
-from javapic import urls as javapic_urls
-from price_list import urls as price_list_urls
-from zengarden import urls as zengarden_urls
-
-
-#from portfolio_proj import urls as portfolio_proj_urls
+from .views import *
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    #url(r'^$', portfolio_index),
-    url(r'^javapic/', include(javapic_urls)),
-    
-    url(r'^price_list/', include(price_list_urls)),
-
-    url(r'^zengarden/', include(zengarden_urls)),
-
-    #profile page is landing page for portfolio
-    url(r'^', include(homepage_urls)),
-
-    #url(r'^portfolio_proj/', include(portfolio_proj_urls))
+url(r'$', homepage_index, name='profile3'),
 
 ]

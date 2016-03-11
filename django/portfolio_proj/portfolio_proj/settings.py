@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'javapic'
+    'javapic',
+    'price_list',
+    'zengarden',
+    'homepage'
 ]
 
 MIDDLEWARE_CLASSES = [
