@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>poll_site</title>
+    <!--<link rel="stylesheet" href="static/poll_site/style.css" />-->
+</head>
+<body>
+
+<main>
+
+
+    <div>
+        <h3>{{ question.question_text }}</h3>
+<form>
+
+{% for choice in question.choice_set.all %}
+
+  <input type="radio" name="{{choice}}" value="{{choice.id}}"> {{choice}} <br>
+
+{% endfor %}
+</form>
+
+
+<!-- comment -->
+</main>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javapic</title>
+    <!--<link rel="stylesheet" href="static/poll_site/style.css" />-->
+</head>
+<body>
+
+<main>
+    <!--<header>javapic <span class="tagline">develop something beautiful</span></header>
+    <div id="jumbotron" class="jumbotron">
+        <div>a picture is worth a 1000 words</div>
+    </div>
+    <div class="bottom_jumbo"><a href="join.html">join now</a></div> -->
+
+    <div>
+        <h3>Questions</h3>
+        <ul>
+            {% for q in questions %}
+                <li><a href="{% url 'question_details' q.id %}">{{ q.question_text }}</a></li>
+                <ul>
+                {% for choice in q.choice_set.all %}
+                    <li>{{ choice.choice_text }}</li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+        </ul>
+
+</main>
+	<script src="static/poll_site/js/index.js" ></script>
+    <script>rotateSlide(1)</script>
+</body>
+</html>
