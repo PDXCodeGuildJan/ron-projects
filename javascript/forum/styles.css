@@ -1,0 +1,322 @@
+@charset "utf-8";
+/* CSS Document 
+style attributions:
+http://blogs.sitepointstatic.com/examples/tech/css3-starwars/index.html
+*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+* { padding: 0; margin: 0; }
+
+body, html
+{
+	width: 100%;
+	height: 100%;
+	font-family: "Droid Sans", arial, verdana, sans-serif;
+	font-weight: 700;
+	color: #ff6;
+	background: #000 url("bg.jpg");
+	overflow: hidden;
+}
+
+p#start
+{
+	position: relative;
+	width: 16em;
+	font-size: 200%;
+	font-weight: 400;
+	margin: 20% auto;
+	color: #4ee;
+	opacity: 0;
+	z-index: 1;
+	animation: intro 2s ease-out;
+}
+
+
+
+@keyframes intro {
+	0% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+h1
+{
+	position: absolute;
+	width: 2.6em;
+	left: 50%;
+	top: 25%;
+	font-size: 10em;
+	text-align: center;
+	margin-left: -1.3em;
+	line-height: 0.8em;
+	letter-spacing: -0.05em;
+	color: #000;
+	text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6, 2px 2px 0 #ff6;
+	opacity: 0;
+	z-index: 1;
+	animation: logo 5s ease-out 2.5s;
+}
+
+h1 sub
+{
+	display: block;
+	font-size: 0.3em;
+	letter-spacing: 0;
+	line-height: 0.8em;
+}
+
+
+
+@keyframes logo {
+	0% { transform: scale(1); opacity: 1; }
+	50% { opacity: 1; }
+	100% { transform: scale(0.1); opacity: 0; }
+}
+
+/* the interesting 3D scrolling stuff */
+#titles
+{
+	position: absolute;
+	width: 18em;
+	height: 50em;
+	bottom: 0;
+	left: 50%;
+	margin-left: -9em;
+	font-size: 350%;
+	text-align: justify;
+	overflow: hidden;
+	transform-origin: 50% 100%;
+	transform: perspective(300px) rotateX(25deg);
+}
+
+#titles:after
+{
+	position: absolute;
+	content: ' ';
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 60%;
+	background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+	pointer-events: none;
+}
+
+#titles p
+{
+	text-align: justify;
+	margin: 0.8em 0;
+}
+
+#titles p.center
+{
+	text-align: center;
+}
+
+#titles a
+{
+	color: #ff6;
+	text-decoration: underline;
+}
+
+#titlecontent
+{
+	position: absolute;
+	top: 100%;
+	animation: scroll 100s linear 4s infinite;
+}
+
+/* animation */
+@keyframes scroll {
+	0% { top: 100%; }
+	100% { top: -170%; }
+}
+
+
+/*
+Form signup
+*/
+
+.form {
+    width: 200px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 75px 50px;
+    border-radius: 2px;
+}
+
+
+label, input {
+    display: block;
+    margin: 2px 0;
+    width: 25%;
+}
+
+label {
+    margin-top: 15px;
+}
+
+input {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.form input[type="submit"] {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #000;
+    border: none;
+    color: #fff;
+    border-radius: 2px;
+}
+
+/*
+
+Star Wars Logo
+attribution: https://cssanimation.rocks/starwars/
+
+*/
+
+/* Animation properties */
+.star {
+  animation: star 10s ease-out forwards;
+}
+.wars {
+  animation: wars 10s ease-out forwards;
+}
+.byline span {
+  animation: spin-letters 10s linear forwards;
+}
+.byline {
+  animation: move-byline 10s linear forwards;
+}
+
+/* Keyframes */
+@keyframes star {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-0.75em);
+  }
+  20% {
+    opacity: 1;
+  }
+  89% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes wars {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) translateY(0.5em);
+  }
+  20% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateZ(-1000em);
+  }
+}
+
+@keyframes spin-letters {
+  0%, 10% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70%, 86% {
+    transform: rotateY(0);
+    opacity: 1;
+  }
+  95%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-byline {
+  0% {
+    transform: translateZ(5em);
+  }
+  100% {
+    transform: translateZ(0);
+  }
+}
+
+/* Make the 3D work on the container */
+.starwars-demo {
+  perspective: 800px;
+  transform-style: preserve3d;
+}
+
+/* General styles and layout */
+
+
+.starwars-demo {
+  height: 17em;
+  left: 50%;
+  position: absolute;
+  top: 53%;
+  transform: translate(-50%, -50%);
+  width: 34em;
+}
+
+.byline span {
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}
+
+.star, .wars, .byline {
+  position: absolute;
+}
+
+.star {
+  top: -0.75em;
+}
+
+.wars {
+  bottom: -0.5em;
+}
+
+.byline {
+  color: #fff;
+  font-family: "ITC Serif Gothic", Lato;
+  font-size: 2.25em;
+  left: -2em;
+  letter-spacing: 0.4em;
+  right: -2em;
+  text-align: center;
+  text-transform: uppercase;
+  top: 40%;
+}
+
+/*** Media queries for adjusting to different screen sizes ***/
+
+@media only screen and (max-width: 600px) {
+  .starwars-demo {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .starwars-demo {
+    font-size: 7px;
+  }
+}
