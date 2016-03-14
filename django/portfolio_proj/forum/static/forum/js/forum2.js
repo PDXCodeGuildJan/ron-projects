@@ -36,7 +36,9 @@ function postToGoogle(title, bodytext) {
 	dataType: "xml",
 	statusCode: {
 		0: function() {
-		get();
+		//get();
+		location.reload();
+
 		//Error message
 		},
 

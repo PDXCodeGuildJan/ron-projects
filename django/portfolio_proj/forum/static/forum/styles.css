@@ -18,6 +18,7 @@ body, html
 	font-weight: 700;
 	color: #ff6;
 	background: #000 url("../static/forum/bg.jpg");
+
 	overflow: hidden;
 }
 
@@ -125,7 +126,8 @@ h1 sub
 {
 	position: absolute;
 	top: 100%;
-	animation: scroll 100s linear 4s forwards;
+	animation: scroll 100s linear 4s infinite;
+
 }
 
 /* animation */

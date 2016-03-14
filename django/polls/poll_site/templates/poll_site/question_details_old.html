@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
+<link rel="stylesheet" type="text/css"
+		href="{% static 'poll_site/styles.css' %}"
 <head>
     <meta charset="UTF-8">
     <title>poll_site</title>
@@ -10,10 +12,9 @@
 
 <main>
 
-
     <div>
         <h3>{{ question.question_text }}</h3>
-	<form id="question_vote">
+	<form>
 
 		    {% for choice in question.choice_set.all %}
 		    <input type="radio" name="question_choice" value="{{choice.id}}" />
@@ -22,13 +23,8 @@
 		    {% endfor %}
 
 
-
-		<input type="hidden" id="question_id" value="{{ question_id }}" />
-		<input type="submit" />
+		<input type="submit" value="Vote" />
 	</form>
-</div>
-
-<script src="{% static 'poll_site/js/voting.js' %}"></script>
 
 
 </main>
