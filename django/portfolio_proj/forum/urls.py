@@ -1,4 +1,4 @@
-"""zen_garden URL Configuration
+"""poll_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -19,6 +19,6 @@ from django.contrib import admin
 from .views import *
 
 urlpatterns = [
-url(r'^$', zengarden_index, name='zen_mockup'),
+url(r'^$', forum_index, name='forum'),
 
 ]

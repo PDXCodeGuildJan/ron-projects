@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'javapic',
     'price_list',
     'zengarden',
-    'homepage'
+    'homepage',
+    'forum',
 ]
 
 MIDDLEWARE_CLASSES = [

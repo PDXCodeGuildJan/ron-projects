@@ -22,6 +22,7 @@ from homepage import urls as homepage_urls
 from javapic import urls as javapic_urls
 from price_list import urls as price_list_urls
 from zengarden import urls as zengarden_urls
+from forum import urls as forum_urls
 
 
 #from portfolio_proj import urls as portfolio_proj_urls
@@ -34,6 +35,8 @@ urlpatterns = [
     url(r'^price_list/', include(price_list_urls)),
 
     url(r'^zengarden/', include(zengarden_urls)),
+
+    url(r'^forum/', include(forum_urls)),
 
     #profile page is landing page for portfolio
     url(r'^', include(homepage_urls)),
