@@ -1,7 +1,9 @@
 //GET XML data from JSON request
 
 
-function get() {	
+function get() {
+	$('.items').remove();
+	
 	$.getJSON( "http://spreadsheets.google.com/feeds/list/1NlIJLGd32t38kt6mJgc64SFpDM_ltq7nfzaRjV1wpLI/default/public/values?alt=json-in-script&callback=?",
 		function (data) {
 			//inside the results class create a new div with a class called items
@@ -20,7 +22,6 @@ function get() {
 			});
 	});
 }
-
 
 
 
@@ -68,3 +69,27 @@ $(document).ready(function(){
 
 });
 
+
+
+/*
+function get() {	
+
+	$.getJSON('http://spreadsheets.google.com/feeds/list/1NlIJLGd32t38kt6mJgc64SFpDM_ltq7nfzaRjV1wpLI/default/public/values?alt=json-in-script&callback=?', 
+	function(data) {
+    var string = "<div>";       
+    for (var i = 0; i < data.feed.entry.length; i++) {
+
+      var timestamp = data.feed.entry[i].gsx$timestamp.$t;
+      var title = data.feed.entry[i].gsx$title.$t;
+      var bodytext = data.feed.entry[i].gsx$bodytext.$t;
+      string += '</br>' + timestamp + '</br>' + title + '</br>' + bodytext + '</br>';
+
+    }
+
+    string += "</div>";
+
+    $('string').appendTo('.results');
+
+});
+
+}*/
