@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.http.response import HttpResponse
+from django.http.response import JsonResponse
+
+import json
 
 
 from .models import Question, Choice
@@ -41,8 +44,57 @@ def question_details(request, question_id):
 
 	question = get_object_or_404(Question, pk=question_id)
 
-	context = {
-	'question': question,
-	}
+	context = {'question': question}
 
 	return render(request, 'poll_site/question_details.html', context)
+
+
+
+def submit_vote(request):
+	"""Handles vote submissions via AJAX"""
+
+	#print ("inside submit function")
+
+	if request.method == 'POST':
+		#decode request body from the bytecode to normal
+		data_json = request.body.decode("utf-8")
+
+		#converts data from string to object
+		data = json.loads(data_json)
+
+		# get the choice at that id
+		choice = Choice.objects.get(pk=int(data['choice_id']))
+
+		#increment the votes of the choice by 1
+		choice.votes += 1
+
+		#save the updated object choice to the database
+		choice.save()
+
+		#get all the choices for the question just voted on
+		question = Question.objects.get(pk=int(data['question_id']))
+
+		question_choices = question.choice_set.all()
+
+		#Build the reponse data
+		response = []
+
+		#loop through the choices and add them to a dictionary
+		for choice in question_choices:
+			c_dict = {
+			'id': choice.id,
+			'text': choice.choice_text,
+			'votes': choice.votes
+			}
+
+			response.append(c_dict)
+
+		#response_json = json.dumps(response)
+
+		#print(data)
+		#print(choice)
+		#print(question_choices)
+
+	return JsonResponse({'data': response}) #takes python dict that returns a json string
+
+

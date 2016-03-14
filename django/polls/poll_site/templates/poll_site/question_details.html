@@ -10,10 +10,11 @@
 
 <main>
 
-
-    <div>
-        <h3>{{ question.question_text }}</h3>
+ 	<h3>{{ question.question_text }}</h3>
+    <div id="question_things">
+       
 	<form id="question_vote">
+		{% csrf_token %}
 
 		    {% for choice in question.choice_set.all %}
 		    <input type="radio" name="question_choice" value="{{choice.id}}" />
@@ -23,10 +24,10 @@
 
 
 
-		<input type="hidden" id="question_id" value="{{ question_id }}" />
+		<input type="hidden" id="question_id" value="{{ question.id }}" />
 		<input type="submit" />
 	</form>
-</div>
+	</div>
 
 <script src="{% static 'poll_site/js/voting.js' %}"></script>
 

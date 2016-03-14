@@ -1,4 +1,4 @@
-"""poll_project URL Configuration
+"""poll_site URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.9/topics/http/urls/
@@ -20,5 +20,6 @@ from .views import *
 
 urlpatterns = [
     url(r'^corgis$', corgi_page, name='corgis'),
-    url(r'question(?P<question_id>[0-9+])', question_details, name='question_details')
+    url(r'question(?P<question_id>[0-9+])', question_details, name='question_details'),
+    url(r'submit_vote$', submit_vote)
 ]
